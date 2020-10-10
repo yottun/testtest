@@ -21,7 +21,6 @@
         viewBox="0 0 110 134"
       />
     </CSidebarBrand>
-
     <CRenderFunction flat :content-to-render="$options.nav"/>
     <CSidebarMinimizer
       class="d-md-down-none"

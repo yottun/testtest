@@ -87,7 +87,7 @@ export default [
       {
         _name: 'CSidebarNavItem',
         name: '基本情報',
-        to: '/charts',
+        to: '/BasicInformation',
         icon: 'cil-chart-pie'
       },
       {
@@ -97,19 +97,19 @@ export default [
         icon: 'cil-star',
         items: [
           {
-            name: 'CoreUI Icons',
+            name: '2020年10月1日',
             to: '/icons/coreui-icons',
             badge: {
-              color: 'info',
-              text: 'NEW'
+              // color: 'info',
+              // text: 'NEW'
             }
           },
           {
-            name: 'Brands',
+            name: '2020年10月2日',
             to: '/icons/brands'
           },
           {
-            name: 'Flags',
+            name: '2020年10月3日',
             to: '/icons/flags'
           }
         ]
@@ -121,15 +121,15 @@ export default [
         icon: 'cil-camera',
         items: [
           {
-            name: 'Alerts',
-            to: '/notifications/alerts'
+            name: '2020年10月1日',
+            to: '/notifications/meal'
           },
           {
-            name: 'Badges',
+            name: '2020年10月2日',
             to: '/notifications/badges'
           },
           {
-            name: 'Modals',
+            name: '2020年10月3日',
             to: '/notifications/modals'
           }
         ]

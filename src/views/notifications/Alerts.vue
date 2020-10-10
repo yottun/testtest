@@ -174,8 +174,8 @@ export default {
   name: 'Alerts',
   data () {
     return {
-      dismissSecs: 10,
-      dismissCountDown: 10,
+      dismissSecs: 20,
+      dismissCountDown: 20,
       alert1: true,
       alert2: true
     }

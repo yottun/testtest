@@ -10,7 +10,7 @@ const MyPage = () => import('@/views/MyPage')
 const Colors = () => import('@/views/theme/Colors')
 const Typography = () => import('@/views/theme/Typography')
 
-const Charts = () => import('@/views/charts/Charts')
+const BasicInformation = () => import('@/views/charts/BasicInformation')
 const Widgets = () => import('@/views/widgets/Widgets')
 
 // Views - Components
@@ -46,6 +46,7 @@ const Flags = () => import('@/views/icons/Flags')
 const Alerts = () => import('@/views/notifications/Alerts')
 const Badges = () => import('@/views/notifications/Badges')
 const Modals = () => import('@/views/notifications/Modals')
+const Meal = () => import('@/views/notifications/Meal')
 
 // Views - Pages
 const Page404 = () => import('@/views/pages/Page404')
@@ -100,9 +101,9 @@ function configRoutes () {
           ]
         },
         {
-          path: 'charts',
-          name: 'Charts',
-          component: Charts
+          path: 'BasicInformation',
+          name: 'BasicInformation',
+          component: BasicInformation
         },
         {
           path: 'widgets',
@@ -302,6 +303,11 @@ function configRoutes () {
               path: 'modals',
               name: 'Modals',
               component: Modals
+            },
+            {
+              path: 'meal',
+              name: 'Meal',
+              component: Meal
             }
           ]
         }
