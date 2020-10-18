@@ -1,74 +1,76 @@
 <template>
-  <div>
-    <CRow>
-      <CCol sm="6" md="4">
-        <CCard class="weight">
-          <CCardHeader>体重記録</CCardHeader>
-          <CCardBody><CChartLineSimple pointed border-color="warning"/></CCardBody>
-        </CCard>
-        <p class="title">食事回数</p>
-        <div>
-          <tr>
-            <th>朝</th>
-            <th>昼</th>
-            <th>夜</th>
-            <th>間食（午前）</th>
-            <th>間食（午後）</th>
-            <th>間食（夕食後）</th>
-          </tr>
-          <tr>
-            <td>◯</td>
-            <td>◯</td>
-            <td>◯</td>
-            <td>◯</td>
-            <td>◯</td>
-            <td>◯</td>
-          </tr>
-        </div>
-      </CCol>
-      <CCol>
-        <p class="title">知識理解度、認識の確認</p>
-        <li>知っていること</li>
-        <li>アドバイスされたこと</li>
-        <li>わからないこと</li>
-        <CTextarea
-          label="インタビュー"
-          placeholder="聞いたことを入力"
-          horizontal
-          rows="9"
-        />
-        <CTextarea
-          label="Textarea"
-          placeholder="Content..."
-          horizontal
-          rows="9"
-        />
-        <CTextarea
-          label="Textarea"
-          placeholder="Content..."
-          horizontal
-          rows="9"
-        />
-      </CCol>
-    </CRow>
-  </div>
+  <CRow>
+    <div class="split-box left-box">
+        <CCol sm="8" md="2">
+          <CCard>
+            <div class="menu">
+            ステップ1：<br />情報収集<br />
+            <hr />
+            ステップ2：<br />ティーチング<br />
+            <hr />
+            ステップ3：<br />目標の確認<br />
+            <hr />
+            ステップ4：<br />確認<br />
+            <hr />
+            ステップ5：<br />Q＆A<br />
+            <hr />
+            ステップ6：<br />アドバイス<br />
+            <hr />
+            ステップ7：<br />力づけ<br />
+            </div>
+          </CCard>
+        </CCol>
+        <CCol>
+          <BasicInformation></BasicInformation>
+        </CCol>
+    </div>
+    <div class="split-box right-box">
+        <CCol>
+          <BasicInformation></BasicInformation>
+        </CCol>
+    </div>
+  </CRow>
 </template>
 
 <script>
-import * as Charts from '../charts/index'
+import * as Charts from "../charts/index";
+import BasicInformation from "../charts/BasicInformation";
+
 export default {
-  name: 'Charts',
+  name: "Charts",
   components: {
-    ...Charts
-  }
-}
+    ...Charts,
+    BasicInformation,
+  },
+};
 </script>
 
 <style>
-  /* .weight {
+/* .weight {
     position: fixed;
   } */
-  .title {
-    font-size: 20px;
-  }
+.title {
+  font-size: 20px;
+}
+.sidebar {
+  position: fixed;
+}
+.split-box {
+  display: flex;
+  position: relative;
+  width: 50%;
+  height: 75vh;
+}
+.menu {
+  position: fixed;
+}
+.left-box {
+  left: 0;
+  overflow-y: scroll;
+}
+
+.right-box {
+  right: 0;
+  overflow-y: scroll;
+}
 </style>

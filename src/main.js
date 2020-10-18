@@ -13,7 +13,15 @@ Vue.prototype.$log = console.log.bind(console)
 
 axios.defaults.baseURL = "https://firestore.googleapis.com/v1/projects/vuejs-http-5308d/databases/(default)/documents";
 
-axios.interceptors.request.use(
+// router.beforeEach((to, from, next) => {
+//   if (store.getters.idToken) {
+//     next();
+//   } else {
+//     next('/pages/login');
+//   }
+// });
+
+const interceptorsRequest = axios.interceptors.request.use(
   config => {
     return config;
   },
@@ -21,22 +29,27 @@ axios.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-axios.interceptors.response.use(
+const interceptorsResponse = axios.interceptors.response.use(
   response => {
     return response;
   },
   error => {
     return Promise.reject(error);
   }
-)
+);
 
-new Vue({
-  el: '#app',
-  router,
-  store,
-  icons,
-  template: '<App/>',
-  components: {
-    App
-  }
+axios.interceptors.request.eject(interceptorsRequest);
+axios.interceptors.response.eject(interceptorsResponse);
+
+store.dispatch('autoLogin').then(() => {
+  new Vue({
+    el: '#app',
+    router,
+    store,
+    icons,
+    template: '<App/>',
+    components: {
+      App
+    }
+  });
 })

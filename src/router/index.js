@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../store'
 
 // Containers
 const TheContainer = () => import('@/containers/TheContainer')
@@ -63,6 +64,7 @@ Vue.use(Router)
 export default new Router({
   mode: 'history', // https://router.vuejs.org/api/#mode
   linkActiveClass: 'active',
+  store,
   scrollBehavior: () => ({ y: 0 }),
   routes: configRoutes()
 })
@@ -78,7 +80,14 @@ function configRoutes () {
         {
           path: 'mypage',
           name: 'MyPage',
-          component: MyPage
+          component: MyPage,
+          beforeEnter(to, from, next) {
+            if (store.getters.idToken) {
+              next();
+            } else {
+              next('/pages/login');
+            }
+          }
         },
         {
           path: 'theme',

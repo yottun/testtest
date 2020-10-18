@@ -13,76 +13,80 @@ export default [
         }
       },
       {
-        _name: 'CSidebarNavDropdown',
+        _name: 'CSidebarNavItem',
         name: '初回栄養指導',
-        route: '/base',
-        icon: 'cil-speech',
-        items: [
-          {
-            name: '情報収集',
-            to: '/base/breadcrumbs'
-          },
-          {
-            name: 'ティーチング',
-            to: '/base/cards'
-          },
-          {
-            name: '目標の確認',
-            to: '/base/carousels'
-          }, 
-          {
-            name: '確認',
-            to: '/base/collapses'
-          },
-          {
-            name: 'Q＆A',
-            to: '/base/forms'
-          },
-          {
-            name: 'アドバイス',
-            to: '/base/jumbotrons'
-          },
-          {
-            name: '力づけ',
-            to: '/base/list-groups'
-          },
-        ]
+        to: '/base/breadcrumbs',
+        icon: 'cil-chart-pie'
+        // _name: 'CSidebarNavDropdown',
+        // name: '初回栄養指導',
+        // route: '/base/breadcrumbs',
+        // icon: 'cil-speech',
+        // items: [
+        //   {
+        //     name: '情報収集',
+        //     to: '/base/breadcrumbs'
+        //   },
+        //   {
+        //     name: 'ティーチング',
+        //     to: '/base/cards'
+        //   },
+        //   {
+        //     name: '目標の確認',
+        //     to: '/base/carousels'
+        //   }, 
+        //   {
+        //     name: '確認',
+        //     to: '/base/collapses'
+        //   },
+        //   {
+        //     name: 'Q＆A',
+        //     to: '/base/forms'
+        //   },
+        //   {
+        //     name: 'アドバイス',
+        //     to: '/base/jumbotrons'
+        //   },
+        //   {
+        //     name: '力づけ',
+        //     to: '/base/list-groups'
+        //   },
+        // ]
       },
       {
-        _name: 'CSidebarNavDropdown',
+        _name: 'CSidebarNavItem',
         name: '２回目以降の栄養指導',
-        route: '/buttons',
+        to: '/buttons',
         icon: 'cil-speech',
-        items: [
-          {
-            name: 'コーチング',
-            to: '/buttons/standard-buttons'
-          },
-          {
-            name: 'ティーチング',
-            to: '/buttons/dropdowns'
-          },
-          {
-            name: 'コーチング',
-            to: '/buttons/button-groups'
-          },
-          {
-            name: '確認',
-            to: '/buttons/brand-buttons'
-          },
-          {
-            name: 'Q&A',
-            to: '/buttons/brand-buttons'
-          },
-          {
-            name: 'アドバイス',
-            to: '/buttons/brand-buttons'
-          },
-          {
-            name: '力づけ',
-            to: '/buttons/brand-buttons'
-          }
-        ]
+        // items: [
+        //   {
+        //     name: 'コーチング',
+        //     to: '/buttons/standard-buttons'
+        //   },
+        //   {
+        //     name: 'ティーチング',
+        //     to: '/buttons/dropdowns'
+        //   },
+        //   {
+        //     name: 'コーチング',
+        //     to: '/buttons/button-groups'
+        //   },
+        //   {
+        //     name: '確認',
+        //     to: '/buttons/brand-buttons'
+        //   },
+        //   {
+        //     name: 'Q&A',
+        //     to: '/buttons/brand-buttons'
+        //   },
+        //   {
+        //     name: 'アドバイス',
+        //     to: '/buttons/brand-buttons'
+        //   },
+        //   {
+        //     name: '力づけ',
+        //     to: '/buttons/brand-buttons'
+        //   }
+        // ]
       },
       {
         _name: 'CSidebarNavItem',
@@ -91,48 +95,48 @@ export default [
         icon: 'cil-chart-pie'
       },
       {
-        _name: 'CSidebarNavDropdown',
+        _name: 'CSidebarNavItem',
         name: '指導記録',
-        route: '/icons',
+        to: '/icons',
         icon: 'cil-star',
-        items: [
-          {
-            name: '2020年10月1日',
-            to: '/icons/coreui-icons',
-            badge: {
-              // color: 'info',
-              // text: 'NEW'
-            }
-          },
-          {
-            name: '2020年10月2日',
-            to: '/icons/brands'
-          },
-          {
-            name: '2020年10月3日',
-            to: '/icons/flags'
-          }
-        ]
+        // items: [
+        //   {
+        //     name: '2020年10月1日',
+        //     to: '/icons/coreui-icons',
+        //     badge: {
+        //       // color: 'info',
+        //       // text: 'NEW'
+        //     }
+        //   },
+        //   {
+        //     name: '2020年10月2日',
+        //     to: '/icons/brands'
+        //   },
+        //   {
+        //     name: '2020年10月3日',
+        //     to: '/icons/flags'
+        //   }
+        // ]
       },
       {
-        _name: 'CSidebarNavDropdown',
+        _name: 'CSidebarNavItem',
         name: '画像',
-        route: '/notifications',
+        to: '/notifications',
         icon: 'cil-camera',
-        items: [
-          {
-            name: '2020年10月1日',
-            to: '/notifications/meal'
-          },
-          {
-            name: '2020年10月2日',
-            to: '/notifications/badges'
-          },
-          {
-            name: '2020年10月3日',
-            to: '/notifications/modals'
-          }
-        ]
+        // items: [
+        //   {
+        //     name: '2020年10月1日',
+        //     to: '/notifications/meal'
+        //   },
+        //   {
+        //     name: '2020年10月2日',
+        //     to: '/notifications/badges'
+        //   },
+        //   {
+        //     name: '2020年10月3日',
+        //     to: '/notifications/modals'
+        //   }
+        // ]
       },
       {
         _name: 'CSidebarNavItem',

@@ -9,45 +9,52 @@
                 <h1>Register</h1>
                 <p class="text-muted">Create your account</p>
                 <CInput
+                  id="email"
+                  type="email"
+                  v-model="email"
                   placeholder="Username"
                   autocomplete="username"
                 >
-                  <template #prepend-content><CIcon name="cil-user"/></template>
+                  <template #prepend-content
+                    ><CIcon name="cil-user"
+                  /></template>
                 </CInput>
-                <CInput
+                <!-- <CInput
                   placeholder="Email"
                   autocomplete="email"
                   prepend="@"
-                />
+                /> -->
                 <CInput
-                  placeholder="Password"
+                  id="password"
                   type="password"
+                  v-model="password"
+                  placeholder="Password"
                   autocomplete="new-password"
                 >
-                  <template #prepend-content><CIcon name="cil-lock-locked"/></template>
+                  <template #prepend-content
+                    ><CIcon name="cil-lock-locked"
+                  /></template>
                 </CInput>
-                <CInput
+                <!-- <CInput
                   placeholder="Repeat password"
                   type="password"
                   autocomplete="new-password"
                   class="mb-4"
                 >
                   <template #prepend-content><CIcon name="cil-lock-locked"/></template>
-                </CInput>
-                <CButton color="success" block>Create Account</CButton>
+                </CInput> -->
+                <CButton color="success" block @click="register"
+                  >Create Account</CButton
+                >
               </CForm>
             </CCardBody>
             <CCardFooter class="p-4">
               <CRow>
                 <CCol col="6">
-                  <CButton block color="facebook">
-                    Facebook
-                  </CButton>
+                  <CButton block color="facebook"> Facebook </CButton>
                 </CCol>
                 <CCol col="6">
-                  <CButton block color="twitter">
-                    Twitter
-                  </CButton>
+                  <CButton block color="twitter"> Twitter </CButton>
                 </CCol>
               </CRow>
             </CCardFooter>
@@ -60,6 +67,22 @@
 
 <script>
 export default {
-  name: 'Register'
-}
+  name: "Register",
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    register() {
+      this.$store.dispatch('register', {
+        email: this.email,
+        password: this.password
+      });
+      this.email = "";
+      this.password = "";
+    },
+  },
+};
 </script>

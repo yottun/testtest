@@ -119,7 +119,7 @@
               <hr />
               <p><strong>その他</strong></p>
 
-              <template v-for="(name, key) in checkboxNames">
+              <template v-for="(name, key) in checkboxNames2">
                 <CRow form class="form-group" :key="name">
                   <CCol tag="label" sm="3" class="col-form-label">
                     主調理者
@@ -156,7 +156,7 @@
                   </CCol>
                 </CRow>
               </template>
-              <template v-for="(name, key) in radioNames">
+              <template v-for="(name, key) in radioNames2">
                 <CRow form class="form-group" :key="name">
                   <CCol sm="3">
                     好き嫌い
@@ -177,7 +177,7 @@
                   </CCol>
                 </CRow>
               </template>
-              <template v-for="(name, key) in radioNames">
+              <template v-for="(name, key) in radioNames3">
                 <CRow form class="form-group" :key="name">
                   <CCol sm="3">
                     サプリメント
@@ -198,7 +198,7 @@
                   </CCol>
                 </CRow>
               </template>
-              <template v-for="(name, key) in radioNames">
+              <template v-for="(name, key) in radioNames4">
                 <CRow form class="form-group" :key="name">
                   <CCol sm="3">
                     服薬
@@ -242,7 +242,7 @@
                 horizontal
                 :options="times"
               />
-              <template v-for="(name, key) in radioNames">
+              <template v-for="(name, key) in radioNames5">
                 <CRow form class="form-group" :key="name">
                   <CCol sm="3">
                     運動習慣
@@ -263,7 +263,7 @@
                   </CCol>
                 </CRow>
               </template>
-              <template v-for="(name, key) in radioNames">
+              <template v-for="(name, key) in radioNames6">
                 <CRow form class="form-group" :key="name">
                   <CCol sm="3">
                     活動状況
@@ -306,7 +306,7 @@
 
               <hr>
               <p><strong>筋肉</strong></p>
-              <template v-for="(name, key) in radioNames">
+              <template v-for="(name, key) in radioNames7">
                 <CRow form class="form-group" :key="name">
                   <CCol sm="3">
                     トレーニングの有無
@@ -362,7 +362,10 @@ export default {
   name: "Charts",
   components: {
     ...Charts,
+    
   },
+
+  name: "BasicInformation",
 
   name: "Forms",
   data() {
@@ -423,9 +426,14 @@ export default {
 
       formCollapsed: true,
       checkboxNames: ["Inline Checkboxes"],
-      radioNames: [
-        "Radios"
-      ],
+      checkboxNames2: ["Inline Checkboxes2"],
+      radioNames: ["Radios"],
+      radioNames2: ["Radios2"],
+      radioNames3: ["Radios3"],
+      radioNames4: ["Radios4"],
+      radioNames5: ["Radios5"],
+      radioNames6: ["Radios6"],
+      radioNames7: ["Radios7"],
     };
   },
   methods: {

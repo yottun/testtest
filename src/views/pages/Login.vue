@@ -16,7 +16,9 @@
                     placeholder="Username"
                     autocomplete="username email"
                   >
-                    <template #prepend-content><CIcon name="cil-user"/></template>
+                    <template #prepend-content
+                      ><CIcon name="cil-user"
+                    /></template>
                   </CInput>
                   <CInput
                     id="password"
@@ -25,15 +27,23 @@
                     placeholder="Password"
                     autocomplete="curent-password"
                   >
-                    <template #prepend-content><CIcon name="cil-lock-locked"/></template>
+                    <template #prepend-content
+                      ><CIcon name="cil-lock-locked"
+                    /></template>
                   </CInput>
                   <CRow>
                     <CCol col="6" class="text-left">
-                      <CButton color="primary" class="px-4">Login</CButton>
+                      <CButton color="primary" class="px-4" @click="login"
+                        >Login</CButton
+                      >
                     </CCol>
                     <CCol col="6" class="text-right">
-                      <CButton color="link" class="px-0">Forgot password?</CButton>
-                      <CButton color="link" class="d-lg-none">Register now!</CButton>
+                      <CButton color="link" class="px-0"
+                        >Forgot password?</CButton
+                      >
+                      <CButton color="link" class="d-lg-none"
+                        >Register now!</CButton
+                      >
                     </CCol>
                   </CRow>
                 </CForm>
@@ -47,12 +57,11 @@
             >
               <CCardBody>
                 <h2>Sign up</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <CButton
-                  color="light"
-                  variant="outline"
-                  size="lg"
-                >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <CButton color="light" variant="outline" size="lg">
                   Register Now!
                 </CButton>
               </CCardBody>
@@ -65,14 +74,24 @@
 </template>
 
 <script>
-import axios from "axios";
+// import Router from 'vue-router'
 export default {
-  name: 'Login',
-  data(){
+  name: "Login",
+  data() {
     return {
-      email: '',
-      password: ''
+      email: "",
+      password: "",
     };
-  }
-}
+  },
+  methods: {
+    login() {
+      this.$store.dispatch('login', {
+        email: this.email,
+        password: this.password
+      });
+      this.email = "";
+      this.password = "";
+    },
+  },
+};
 </script>
