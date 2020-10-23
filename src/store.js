@@ -74,6 +74,13 @@ const moduleA = {
           router.push('/')
         });
     },
+    logout({ commit }) {
+      commit('updateIdToken', null);
+      localStorage.removeItem('idToken');
+      localStorage.removeItem('expiryTimeMs');
+      localStorage.removeItem('refreshToken');
+      router.push('pages/login');
+    },
     refreshIdToken({ dispatch }, refreshToken) {
       axiosRefresh.post('/token?key=AIzaSyCdkrusRo0EpOHoat_01-EgDTCR9QfYqww',
         {
@@ -117,7 +124,26 @@ const moduleA = {
       setTimeout(() => {
         dispatch('refreshIdToken', authData.refreshToken);
       }, authData.expiresIn * 1000);
-    }
+    },
+    nutritionist_register({ dispatch }, authData) {
+      axios
+        .post(
+          "/accounts:signUp?key=AIzaSyCdkrusRo0EpOHoat_01-EgDTCR9QfYqww",
+          {
+            email: authData.email,
+            password: authData.password,
+            returnSecureToken: true,
+          }
+        )
+        .then((response) => {
+          dispatch('setAuthData', {
+            idToken: response.data.idToken,
+            expiresIn: response.data.expiresIn,
+            refreshToken: response.data.refreshToken
+          });
+          router.push('/');
+        });
+    },
   }
 }
 

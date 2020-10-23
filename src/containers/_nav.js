@@ -17,81 +17,17 @@ export default [
         name: '初回栄養指導',
         to: '/base/breadcrumbs',
         icon: 'cil-chart-pie'
-        // _name: 'CSidebarNavDropdown',
-        // name: '初回栄養指導',
-        // route: '/base/breadcrumbs',
-        // icon: 'cil-speech',
-        // items: [
-        //   {
-        //     name: '情報収集',
-        //     to: '/base/breadcrumbs'
-        //   },
-        //   {
-        //     name: 'ティーチング',
-        //     to: '/base/cards'
-        //   },
-        //   {
-        //     name: '目標の確認',
-        //     to: '/base/carousels'
-        //   }, 
-        //   {
-        //     name: '確認',
-        //     to: '/base/collapses'
-        //   },
-        //   {
-        //     name: 'Q＆A',
-        //     to: '/base/forms'
-        //   },
-        //   {
-        //     name: 'アドバイス',
-        //     to: '/base/jumbotrons'
-        //   },
-        //   {
-        //     name: '力づけ',
-        //     to: '/base/list-groups'
-        //   },
-        // ]
       },
       {
         _name: 'CSidebarNavItem',
         name: '２回目以降の栄養指導',
-        to: '/buttons',
-        icon: 'cil-speech',
-        // items: [
-        //   {
-        //     name: 'コーチング',
-        //     to: '/buttons/standard-buttons'
-        //   },
-        //   {
-        //     name: 'ティーチング',
-        //     to: '/buttons/dropdowns'
-        //   },
-        //   {
-        //     name: 'コーチング',
-        //     to: '/buttons/button-groups'
-        //   },
-        //   {
-        //     name: '確認',
-        //     to: '/buttons/brand-buttons'
-        //   },
-        //   {
-        //     name: 'Q&A',
-        //     to: '/buttons/brand-buttons'
-        //   },
-        //   {
-        //     name: 'アドバイス',
-        //     to: '/buttons/brand-buttons'
-        //   },
-        //   {
-        //     name: '力づけ',
-        //     to: '/buttons/brand-buttons'
-        //   }
-        // ]
+        to: '/test',
+        icon: 'cil-speech'
       },
       {
         _name: 'CSidebarNavItem',
         name: '基本情報',
-        to: '/BasicInformation',
+        to: '/basicInformation',
         icon: 'cil-chart-pie'
       },
       {

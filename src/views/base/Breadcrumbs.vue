@@ -46,15 +46,7 @@ export default {
 </script>
 
 <style>
-/* .weight {
-    position: fixed;
-  } */
-.title {
-  font-size: 20px;
-}
-.sidebar {
-  position: fixed;
-}
+
 .split-box {
   display: flex;
   position: relative;

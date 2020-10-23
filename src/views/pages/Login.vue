@@ -2,18 +2,18 @@
   <div class="c-app flex-row align-items-center">
     <CContainer>
       <CRow class="justify-content-center">
-        <CCol md="8">
+        <CCol md="10">
           <CCardGroup>
             <CCard class="p-4">
               <CCardBody>
                 <CForm>
-                  <h1>Login</h1>
+                  <h1>ログイン</h1>
                   <p class="text-muted">Sign In to your account</p>
                   <CInput
                     id="email"
                     type="email"
                     v-model="email"
-                    placeholder="Username"
+                    placeholder="test@test.com"
                     autocomplete="username email"
                   >
                     <template #prepend-content
@@ -34,12 +34,12 @@
                   <CRow>
                     <CCol col="6" class="text-left">
                       <CButton color="primary" class="px-4" @click="login"
-                        >Login</CButton
+                        >ログイン</CButton
                       >
                     </CCol>
                     <CCol col="6" class="text-right">
                       <CButton color="link" class="px-0"
-                        >Forgot password?</CButton
+                        >パスワードを忘れた方</CButton
                       >
                       <CButton color="link" class="d-lg-none"
                         >Register now!</CButton
@@ -56,13 +56,16 @@
               body-wrapper
             >
               <CCardBody>
-                <h2>Sign up</h2>
+                <h2>アカウントを<br>作ろう！</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
-                <CButton color="light" variant="outline" size="lg">
-                  Register Now!
+                <CButton
+                  color="light"
+                  variant="outline"
+                  size="lg"
+                  @click="toRegister"
+                >
+                  新規登録
                 </CButton>
               </CCardBody>
             </CCard>
@@ -74,7 +77,7 @@
 </template>
 
 <script>
-// import Router from 'vue-router'
+import Router from "vue-router";
 export default {
   name: "Login",
   data() {
@@ -85,12 +88,15 @@ export default {
   },
   methods: {
     login() {
-      this.$store.dispatch('login', {
+      this.$store.dispatch("login", {
         email: this.email,
-        password: this.password
+        password: this.password,
       });
       this.email = "";
       this.password = "";
+    },
+    toRegister() {
+      this.$router.push("register");
     },
   },
 };

@@ -1,41 +1,23 @@
 <template>
   <div id="app">
-    <CCard>
-      <CCardHeader>
-        <CIcon name="cil-justify-center" /><strong>USER検索</strong>
-      </CCardHeader>
-      <CCardBody>
-        <CNavbar light color="light">
-          <CForm inline>
-            <CInput class="mr-sm-2" placeholder="Search" size="sm" />
-            <CButton color="outline-success" class="my-2 my-sm-0" type="submit"
-              >Search</CButton
-            >
-          </CForm>
-        </CNavbar>
-      </CCardBody>
-    </CCard>
-    <Users></Users>
-    <!-- <h3>投稿する</h3>
-    <label for="name">ニックネーム</label>
-    <input id="name" type="text" v-model="name" />
-    <br /><br />
-
-    <label for="comment">コメント</label>
-    <textarea name="" id="comment" v-model="comment"></textarea>
-    <br /><br />
-    <button @click="createComment">コメントをサーバーに送る</button>
-    <h2>掲示板</h2>
-    <div v-for="post in posts" :key="post.name">
-      <br />
-      <div>名前:{{ post.fields.name.stringValue }}</div>
-      <div>コメント:{{ post.fields.comment.stringValue }}</div>
-    </div> -->
+    <h2>ユーザー</h2>
+    <table>
+      <tr>
+        <th>名前</th>
+        <th>コメント</th>
+        <th>日時</th>
+      </tr>
+      <tr v-for="post in posts" :key="post.name">
+        <td>{{ post.fields.name.stringValue }}</td>
+        <td>{{ post.fields.comment.stringValue }}</td>
+        <td>{{ post.updateTime }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
 <script>
-import Users from "../views/users/Users";
+import Users from "../users/Users";
 import axios from "axios";
 
 export default {
@@ -100,3 +82,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+tr,
+td,
+th {
+  border: solid 1px black;
+  padding: 5px;
+}
+</style>

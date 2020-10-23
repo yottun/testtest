@@ -31,6 +31,7 @@ const Paginations = () => import('@/views/base/Paginations')
 const Popovers = () => import('@/views/base/Popovers')
 const ProgressBars = () => import('@/views/base/ProgressBars')
 const Tooltips = () => import('@/views/base/Tooltips')
+const Test = () => import('@/views/base/Test')
 
 // Views - Buttons
 const StandardButtons = () => import('@/views/buttons/StandardButtons')
@@ -54,6 +55,7 @@ const Page404 = () => import('@/views/pages/Page404')
 const Page500 = () => import('@/views/pages/Page500')
 const Login = () => import('@/views/pages/Login')
 const Register = () => import('@/views/pages/Register')
+const NutritionistRegister = () => import('@/views/pages/NutritionistRegister')
 
 // Users
 const Users = () => import('@/views/users/Users')
@@ -110,10 +112,19 @@ function configRoutes () {
           ]
         },
         {
-          path: 'BasicInformation',
+          path: 'basicInformation',
           name: 'BasicInformation',
           component: BasicInformation
         },
+
+
+        {
+          path: 'test',
+          name: 'Test',
+          component: Test
+        },
+
+
         {
           path: 'widgets',
           name: 'Widgets',
@@ -232,7 +243,7 @@ function configRoutes () {
               path: 'tooltips',
               name: 'Tooltips',
               component: Tooltips
-            }
+            }            
           ]
         },
         {
@@ -349,7 +360,12 @@ function configRoutes () {
           path: 'register',
           name: 'Register',
           component: Register
-        }
+        },
+        {
+          path: 'nutritionist-register',
+          name: 'NutritionistRegister',
+          component: NutritionistRegister
+        },
       ]
     }
   ]

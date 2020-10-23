@@ -6,14 +6,15 @@
           <CCard class="mx-4 mb-0">
             <CCardBody class="p-4">
               <CForm>
-                <h1>Register</h1>
-                <p class="text-muted">Create your account</p>
+                <h1>登録</h1>
+                <p class="text-muted">アカウント作成</p>
                 <CInput
                   id="email"
                   type="email"
                   v-model="email"
                   placeholder="Username"
                   autocomplete="username"
+                  description="emailアドレスを入力してください。"
                 >
                   <template #prepend-content
                     ><CIcon name="cil-user"
@@ -35,14 +36,16 @@
                     ><CIcon name="cil-lock-locked"
                   /></template>
                 </CInput>
-                <!-- <CInput
+                <CInput
                   placeholder="Repeat password"
                   type="password"
+                  v-model="repassword"
                   autocomplete="new-password"
                   class="mb-4"
                 >
                   <template #prepend-content><CIcon name="cil-lock-locked"/></template>
-                </CInput> -->
+                </CInput>
+                <p class="passError">{{ passError }}</p>
                 <CButton color="success" block @click="register"
                   >Create Account</CButton
                 >
@@ -72,17 +75,28 @@ export default {
     return {
       email: "",
       password: "",
+      repassword: "",
+      passError: "",
     };
   },
   methods: {
     register() {
+      if( this.password === this.repassword ) {
       this.$store.dispatch('register', {
         email: this.email,
         password: this.password
       });
       this.email = "";
       this.password = "";
-    },
+      this.repassword = "";
+    } else {
+      this.passError = "パスワードが一致しません。";
+    }},
   },
 };
 </script>
+<style  scoped>
+.passError {
+  color: red;
+}
+</style>

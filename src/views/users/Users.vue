@@ -1,6 +1,6 @@
 <template>
   <CRow>
-    <CCol col="12" xl="8">
+    <CCol col="" xl="">
       <CCard>
         <CCardHeader>
           Users

@@ -46,6 +46,11 @@
           <CIcon name="cil-envelope-open"/>
         </CHeaderNavLink>
       </CHeaderNavItem>
+      <CHeaderNavItem class="d-md-down-none mx-2">
+        <CHeaderNavLink>
+          <div @click="logout">ログアウト</div>
+        </CHeaderNavLink>
+      </CHeaderNavItem>
       <TheHeaderDropdownAccnt/>
     </CHeaderNav>
     <CSubheader class="px-3 goal">
@@ -61,6 +66,11 @@ export default {
   name: 'TheHeader',
   components: {
     TheHeaderDropdownAccnt
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout');
+    }
   }
 }
 </script>
