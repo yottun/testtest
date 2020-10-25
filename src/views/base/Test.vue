@@ -13,12 +13,16 @@
         <td>{{ post.updateTime }}</td>
       </tr>
     </table>
+    <button @click="getAuth">user</button>
   </div>
 </template>
 
 <script>
 import Users from "../users/Users";
 import axios from "axios";
+import firebase from "firebase";
+
+var db = firebase.firestore();
 
 export default {
   name: "MyPage",
@@ -30,6 +34,7 @@ export default {
       name: "",
       comment: "",
       posts: [],
+      user: {},
     };
   },
   computed: {
@@ -78,6 +83,31 @@ export default {
         });
       this.name = "";
       this.comment = "";
+    },
+
+    // firebaseユーザー確認  うまく動かず
+    getAuth() {
+      firebase.auth().onAuthStateChanged(function (user) {
+        this.user = user ? user : {};
+        console.log(this.user);
+        if (this.user) {
+          console.log(this.user);
+        } else {
+          alert("no user");
+        }
+      });
+      db.collection("users").doc("ken").collection("ken")
+        .set({
+          first: "Ken",
+          last: "Lovelace",
+          born: 1815,
+        })
+        .then(function (docRef) {
+          console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function (error) {
+          console.error("Error adding document: ", error);
+        });
     },
   },
 };

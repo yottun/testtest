@@ -9,32 +9,10 @@
                 <CForm>
                   <h1>ログイン</h1>
                   <p class="text-muted">Sign In to your account</p>
-                  <CInput
-                    id="email"
-                    type="email"
-                    v-model="email"
-                    placeholder="test@test.com"
-                    autocomplete="username email"
-                  >
-                    <template #prepend-content
-                      ><CIcon name="cil-user"
-                    /></template>
-                  </CInput>
-                  <CInput
-                    id="password"
-                    type="password"
-                    v-model="password"
-                    placeholder="Password"
-                    autocomplete="curent-password"
-                  >
-                    <template #prepend-content
-                      ><CIcon name="cil-lock-locked"
-                    /></template>
-                  </CInput>
                   <CRow>
                     <CCol col="6" class="text-left">
-                      <CButton color="primary" class="px-4" @click="googleLogin"
-                        >ログイン</CButton
+                      <CButton color="primary" class="px-3" @click="googleLogin"
+                        >Googleログイン</CButton
                       >
                     </CCol>
                     <CCol col="6" class="text-right">
@@ -80,27 +58,20 @@
 import Router from "vue-router";
 import firebase from "firebase";
 export default {
-  name: "Login",
+  name: "GooleLogin",
   data() {
     return {
-      email: "",
-      password: "",
+    //   email: "",
+    //   password: "",
     };
   },
   methods: {
-    googleLogin: function() {
+    googleLogin() {
       firebase
         .auth()
         .signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+        this.$router.push("/");
     },
-    // login() {
-    //   this.$store.dispatch("login", {
-    //     email: this.email,
-    //     password: this.password,
-    //   });
-    //   this.email = "";
-    //   this.password = "";
-    // },
     toRegister() {
       this.$router.push("register");
     },

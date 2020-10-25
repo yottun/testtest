@@ -2,7 +2,7 @@
   <div class="c-app">
     <TheSidebar/>
     <CWrapper>
-      <TheHeader/>
+      <TheHeader :user="userData"/>
       <div class="c-body">
         <main class="c-main">
           <CContainer fluid>
@@ -21,14 +21,25 @@
 import TheSidebar from './TheSidebar'
 import TheHeader from './TheHeader'
 import TheFooter from './TheFooter'
+import firebase from 'firebase'
 
 export default {
   name: 'TheContainer',
+  data() {
+    return {
+      isLogin: false,
+      userData: null,
+      // loading: true
+    };
+    },
+    methods: {
+
+    },
   components: {
     TheSidebar,
     TheHeader,
     TheFooter
-  }
+  },
 }
 </script>
 

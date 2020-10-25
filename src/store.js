@@ -27,7 +27,9 @@ const mutations = {
 
 const moduleA = {
   state: {
-    idToken: null
+    idToken: null,
+    userLogin: null,
+    clientData: null
   },
   getters: {
     idToken: state => state.idToken
@@ -35,26 +37,32 @@ const moduleA = {
   mutations: {
     updateIdToken(state, idToken) {
       state.idToken = idToken;
+    },
+    getUserData(state, user) {
+      state.userLogin = user;
+    },
+    getClientData(state, client) {
+      state.clientData = client;
     }
   },
   actions: {
-    autoLogin({ commit, dispatch }) {
-      const idToken = localStorage.getItem('idToken');
-      if (!idToken) return;
-      const now = new Date();
-      const expiryTimeMs = localStorage.getItem('expiryTimeMs');
-      const isExpired = now.getTime() >= expiryTimeMs;
-      const refreshToken = localStorage.getItem('refreshToken');
-      if (isExpired) {
-        dispatch('refreshIdToken', refreshToken);
-      } else {
-        const expiresInMs = expiryTimeMs - now.getTime();
-        setTimeout(() => {
-          dispatch('refreshIdToken', refreshToken);
-        }, expiresInMs);
-        commit('updateIdToken', idToken);
-      }
-    },
+    // autoLogin({ commit, dispatch }) {
+      // const idToken = localStorage.getItem('idToken');
+      // if (!idToken) return;
+      // const now = new Date();
+      // const expiryTimeMs = localStorage.getItem('expiryTimeMs');
+      // const isExpired = now.getTime() >= expiryTimeMs;
+      // const refreshToken = localStorage.getItem('refreshToken');
+      // if (isExpired) {
+      //   dispatch('refreshIdToken', refreshToken);
+      // } else {
+      //   const expiresInMs = expiryTimeMs - now.getTime();
+      //   setTimeout(() => {
+      //     dispatch('refreshIdToken', refreshToken);
+      //   }, expiresInMs);
+      //   commit('updateIdToken', idToken);
+      // }
+    // },
     login({ dispatch }, authData) {
       axios
         .post(

@@ -4,6 +4,7 @@
       <CCard>
         <CCardHeader>
           Users
+          <button>クライアント新規登録</button>
         </CCardHeader>
         <CCardBody>
           <CDataTable

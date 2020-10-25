@@ -1,20 +1,15 @@
 <template>
   <div id="app">
     <CCard>
-      <CCardHeader>
-        <CIcon name="cil-justify-center" /><strong>USER検索</strong>
-      </CCardHeader>
       <CCardBody>
-        <CNavbar light color="light">
-          <CForm inline>
-            <CInput class="mr-sm-2" placeholder="Search" size="sm" />
-            <CButton color="outline-success" class="my-2 my-sm-0" type="submit"
-              >Search</CButton
-            >
-          </CForm>
-        </CNavbar>
+        <CRow>
+          {{ userData.displayName }}<br />
+          {{ userData.email }}<br />
+          {{ userData.uid }}
+        </CRow>
       </CCardBody>
     </CCard>
+    <ClientCreate></ClientCreate>
     <Users></Users>
     <!-- <h3>投稿する</h3>
     <label for="name">ニックネーム</label>
@@ -36,67 +31,70 @@
 
 <script>
 import Users from "../views/users/Users";
+import ClientCreate from "../views/base/ClientCreate";
 import axios from "axios";
+import firebase from "firebase";
 
 export default {
   name: "MyPage",
+  // props: ["user"],
   components: {
     Users,
+    ClientCreate
   },
   data() {
     return {
-      name: "",
-      comment: "",
-      posts: [],
+      userData: "",
+      clientData: "",
+      // name: "",
+      // comment: "",
+      // posts: [],
     };
   },
   computed: {
-    idToken() {
-      return this.$store.getters.idToken;
-    },
+    // idToken() {
+    //   return this.$store.getters.idToken;
+    // },
   },
   created() {
-    axios
-      .get("/comments", {
-        headers: {
-          Authorization: `Bearer ${this.idToken}`,
-        },
-      })
-      .then((response) => {
-        this.posts = response.data.documents;
-        console.log(response.data.documents);
-      });
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.commit("getUserData", user);
+        console.log(user);
+        this.userData = this.$store.state.a.userLogin;
+      }
+    })
   },
   methods: {
-    createComment() {
-      axios
-        .post(
-          "/comments",
-          {
-            fields: {
-              name: {
-                stringValue: this.name,
-              },
-              comment: {
-                stringValue: this.comment,
-              },
-            },
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${this.idToken}`,
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((eror) => {
-          console.log(error);
-        });
-      this.name = "";
-      this.comment = "";
-    },
+    // createComment() {
+    //   axios
+    //     .post(
+    //       "/comments",
+    //       {
+    //         fields: {
+    //           name: {
+    //             stringValue: this.name,
+    //           },
+    //           comment: {
+    //             stringValue: this.comment,
+    //           },
+    //         },
+    //       },
+    //       {
+    //         headers: {
+    //           Authorization: `Bearer ${this.idToken}`,
+    //         },
+    //       }
+    //     )
+    //     .then((response) => {
+    //       console.log(response);
+    //     })
+    //     .catch((eror) => {
+    //       console.log(error);
+    //     });
+    //   this.name = "";
+    //   this.comment = "";
+    // },
   },
 };
 </script>

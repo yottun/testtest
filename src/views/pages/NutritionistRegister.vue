@@ -73,42 +73,20 @@
                     ><CIcon name="cil-lock-locked"
                   /></template>
                 </CInput>
-                <div>保有資格<br /></div>
-                <div class="license">
-                  <input
-                    name="checked-license"
-                    id="nutritionist"
-                    type="checkbox"
-                    value="管理栄養士"
-                  v-model="checkedLicense"
-                  />
-                  <label for="nutritionist">管理栄養士</label>
-                  <input
-                    name="checked-license"
-                    id="dietician"
-                    type="checkbox"
-                    value="栄養士"
-                  v-model="checkedLicense"
-                  />
-                  <label for="dietician">栄養士</label>
-                  <input
-                    name="checked-license"
-                    id="ather_license"
-                    type="checkbox"
-                    value="その他"
-                  v-model="checkedLicense"
-                  />
-                  <label for="ather_license">その他</label>
-                  <input type="text" placeholder="その他の資格を入力" 
-                  v-model="atherLicense"/>
+                <div>管理栄養士免許<br /></div>
+                <div class="picked-license">
+                  <input name="picked-license" id="yes" type="radio" value="あり" v-model="pickedLicense"/>
+                  <label for="yes">あり</label>
+                  <input name="picked-license" id="no" type="radio" value="なし" v-model="pickedLicense"/>
+                  <label for="no">なし</label>
                 </div>
                 <div>栄養指導経験<br /></div>
                 <div class="picked-experience">
-                  <input name="picked-experience" id="yes" type="radio" value="あり" v-model="pickedExperience"/>
-                  <label for="yes">あり</label>
-                  <input name="picked-experience" id="no" type="radio" value="なし" v-model="pickedExperience"/>
-                  <label for="no">なし</label>
-                  <input type="text" placeholder="ありの場合" />年
+                  <input name="picked-experience" id="picked-experience-yes" type="radio" value="あり" v-model="pickedExperience"/>
+                  <label for="picked-experience-yes">あり</label>
+                  <input name="picked-experience" id="picked-experience-yes-no" type="radio" value="なし" v-model="pickedExperience"/>
+                  <label for="picked-experience-yes-no">なし</label>
+                  <input name="experience-yes" type="text" placeholder="ありの場合" v-model="experienceYes" />年
                 </div>
                 <CButton color="success" block @click="nutritionist_register"
                   >Create Account</CButton
@@ -124,6 +102,7 @@
 
 <script>
 import axios from "axios";
+import firebase from "firebase";
 
 export default {
   name: "NutritionistRegister",
@@ -135,9 +114,9 @@ export default {
       pickedSex: "",
       birthday: "",
       address: "",
-      checkedLicense: [],
-      atherLicense: "",
+      pickedLicense: "",
       pickedExperience: "",
+      experienceYes: "",
     };
   },
   computed: {
@@ -170,14 +149,14 @@ export default {
               address: {
                 stringValue: this.address,
               },
-              checkedLicense: {
-                stringValue: this.checkedLicense,
-              },
-              atherLicense: {
-                stringValue: this.atherLicense,
+              pickedLicense: {
+                stringValue: this.pickedLicense,
               },
               pickedExperience: {
                 stringValue: this.pickedExperience,
+              },
+              experienceYes: {
+                stringValue: this.experienceYes,
               },
             },
           },
@@ -198,6 +177,7 @@ export default {
       this.nickname = "";
       this.birthday = "";
       this.address = "";
+      this.experienceYes = "";
       // console.log(checkedLicense);
     },
   },
@@ -214,9 +194,9 @@ label {
   margin-right: 10px;
 }
 .sex,
-.license,
+.picked-license,
 .experience,
-.years_of_experience {
+.picked-experience {
   padding: 15px;
 }
 .main {

@@ -15,35 +15,29 @@
     </CHeaderBrand> -->
     <CHeaderNav class="d-md-down-none mr-auto">
       <CHeaderNavItem class="px-3">
-        <CHeaderNavLink to="/mypage">
-          MyPage
-        </CHeaderNavLink>
+        <CHeaderNavLink to="/mypage"> MyPage </CHeaderNavLink>
       </CHeaderNavItem>
       <CHeaderNavItem class="px-3">
-        <CHeaderNavLink to="/users" exact>
-          Users
-        </CHeaderNavLink>
+        <CHeaderNavLink to="/users" exact> Users </CHeaderNavLink>
       </CHeaderNavItem>
       <CHeaderNavItem class="px-3">
-        <CHeaderNavLink>
-          Settings
-        </CHeaderNavLink>
+        <CHeaderNavLink> Settings </CHeaderNavLink>
       </CHeaderNavItem>
     </CHeaderNav>
     <CHeaderNav class="mr-4">
       <CHeaderNavItem class="d-md-down-none mx-2">
         <CHeaderNavLink>
-          <CIcon name="cil-bell"/>
+          <CIcon name="cil-bell" />
         </CHeaderNavLink>
       </CHeaderNavItem>
       <CHeaderNavItem class="d-md-down-none mx-2">
         <CHeaderNavLink>
-          <CIcon name="cil-list"/>
+          <CIcon name="cil-list" />
         </CHeaderNavLink>
       </CHeaderNavItem>
       <CHeaderNavItem class="d-md-down-none mx-2">
         <CHeaderNavLink>
-          <CIcon name="cil-envelope-open"/>
+          <CIcon name="cil-envelope-open" />
         </CHeaderNavLink>
       </CHeaderNavItem>
       <CHeaderNavItem class="d-md-down-none mx-2">
@@ -51,28 +45,40 @@
           <div @click="logout">ログアウト</div>
         </CHeaderNavLink>
       </CHeaderNavItem>
-      <TheHeaderDropdownAccnt/>
+      <TheHeaderDropdownAccnt />
     </CHeaderNav>
     <CSubheader class="px-3 goal">
-      <p>◯◯◯様<br>目標：半年で5kgマイナス</p>
+      <p>◯◯◯様<br />目標：半年で5kgマイナス{{ userName }}</p>
     </CSubheader>
   </CHeader>
 </template>
 
 <script>
-import TheHeaderDropdownAccnt from './TheHeaderDropdownAccnt'
+import TheHeaderDropdownAccnt from "./TheHeaderDropdownAccnt";
+import firebase from "firebase";
+import Router from "vue-router";
 
 export default {
-  name: 'TheHeader',
+  name: "TheHeader",
+  // props: ["user"],
   components: {
-    TheHeaderDropdownAccnt
+    TheHeaderDropdownAccnt,
+  },
+
+  data() {
+    return {
+      userName: this.$store.state.a.userLogin
+      // ユーザー情報
+    };
   },
   methods: {
     logout() {
-      this.$store.dispatch('logout');
-    }
-  }
-}
+      // this.$store.dispatch("logout");
+      firebase.auth().signOut();
+      this.$router.push("/pages/login-google");
+    },
+  },
+};
 </script>
 
 <style scoped>

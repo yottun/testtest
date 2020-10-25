@@ -32,6 +32,7 @@ const Popovers = () => import('@/views/base/Popovers')
 const ProgressBars = () => import('@/views/base/ProgressBars')
 const Tooltips = () => import('@/views/base/Tooltips')
 const Test = () => import('@/views/base/Test')
+const ClientCreate = () => import('@/views/base/ClientCreate')
 
 // Views - Buttons
 const StandardButtons = () => import('@/views/buttons/StandardButtons')
@@ -53,7 +54,8 @@ const Meal = () => import('@/views/notifications/Meal')
 // Views - Pages
 const Page404 = () => import('@/views/pages/Page404')
 const Page500 = () => import('@/views/pages/Page500')
-const Login = () => import('@/views/pages/Login')
+// const Login = () => import('@/views/pages/Login')
+const GoogleLogin = () => import('@/views/pages/GoogleLogin')
 const Register = () => import('@/views/pages/Register')
 const NutritionistRegister = () => import('@/views/pages/NutritionistRegister')
 
@@ -83,13 +85,13 @@ function configRoutes () {
           path: 'mypage',
           name: 'MyPage',
           component: MyPage,
-          beforeEnter(to, from, next) {
-            if (store.getters.idToken) {
-              next();
-            } else {
-              next('/pages/login');
-            }
-          }
+          // beforeEnter(to, from, next) {
+          //   if (store.getters.idToken) {
+          //     next();
+          //   } else {
+          //     next('/pages/login-google');
+          //   }
+          // }
         },
         {
           path: 'theme',
@@ -115,6 +117,11 @@ function configRoutes () {
           path: 'basicInformation',
           name: 'BasicInformation',
           component: BasicInformation
+        },
+        {
+          path: 'client-create',
+          name: 'ClientCreate',
+          component: ClientCreate
         },
 
 
@@ -352,9 +359,9 @@ function configRoutes () {
           component: Page500
         },
         {
-          path: 'login',
-          name: 'Login',
-          component: Login
+          path: 'google-login',
+          name: 'GoogleLogin',
+          component: GoogleLogin
         },
         {
           path: 'register',
