@@ -12,29 +12,29 @@ export default [
           text: 'お知らせ'
         }
       },
-      {
-        _name: 'CSidebarNavItem',
-        name: '初回栄養指導',
-        to: '/base/breadcrumbs',
-        icon: 'cil-chart-pie'
-      },
-      {
-        _name: 'CSidebarNavItem',
-        name: '２回目以降の栄養指導',
-        to: '/test',
-        icon: 'cil-speech'
-      },
-      {
-        _name: 'CSidebarNavItem',
-        name: '基本情報',
-        to: '/basicInformation',
-        icon: 'cil-chart-pie'
-      },
-      {
-        _name: 'CSidebarNavItem',
-        name: '指導記録',
-        to: '/icons',
-        icon: 'cil-star',
+      // {
+      //   _name: 'CSidebarNavItem',
+      //   name: '初回栄養指導',
+      //   to: '/base/breadcrumbs',
+      //   icon: 'cil-chart-pie'
+      // },
+      // {
+      //   _name: 'CSidebarNavItem',
+      //   name: '２回目以降の栄養指導',
+      //   to: '/test',
+      //   icon: 'cil-speech'
+      // },
+      // {
+      //   _name: 'CSidebarNavItem',
+      //   name: '基本情報',
+      //   to: '/basicInformation',
+      //   icon: 'cil-chart-pie'
+      // },
+      // {
+      //   _name: 'CSidebarNavItem',
+      //   name: '指導記録',
+      //   to: '/icons',
+      //   icon: 'cil-star',
         // items: [
         //   {
         //     name: '2020年10月1日',
@@ -53,12 +53,12 @@ export default [
         //     to: '/icons/flags'
         //   }
         // ]
-      },
-      {
-        _name: 'CSidebarNavItem',
-        name: '画像',
-        to: '/notifications',
-        icon: 'cil-camera',
+      // },
+      // {
+      //   _name: 'CSidebarNavItem',
+      //   name: '画像',
+      //   to: '/notifications',
+      //   icon: 'cil-camera',
         // items: [
         //   {
         //     name: '2020年10月1日',
@@ -73,18 +73,18 @@ export default [
         //     to: '/notifications/modals'
         //   }
         // ]
-      },
-      {
-        _name: 'CSidebarNavItem',
-        name: 'スケジュール',
-        to: '/widgets',
-        icon: 'cil-calendar',
-        badge: {
-          color: 'primary',
-          text: 'NEW',
-          shape: 'pill'
-        }
-      },
+      // },
+      // {
+      //   _name: 'CSidebarNavItem',
+      //   name: 'スケジュール',
+      //   to: '/widgets',
+      //   icon: 'cil-calendar',
+      //   badge: {
+      //     color: 'primary',
+      //     text: 'NEW',
+      //     shape: 'pill'
+      //   }
+      // },
       {
         _name: 'CSidebarNavDivider',
         _class: 'm-2'

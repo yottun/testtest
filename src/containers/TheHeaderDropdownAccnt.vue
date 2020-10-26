@@ -9,7 +9,7 @@
       <CHeaderNavLink>
         <div class="c-avatar">
           <img
-            src="img/avatars/6.jpg"
+            :src="userData.photoURL"
             class="c-avatar-img "
           />
         </div>
@@ -66,13 +66,25 @@
 </template>
 
 <script>
+import firebase from "firebase";
 export default {
   name: 'TheHeaderDropdownAccnt',
   data () {
     return { 
+      userData: "",
       itemsCount: 42
     }
-  }
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.commit("getUserData", user);
+        console.log(user);
+        this.userData = this.$store.state.a.userLogin;
+        console.log(this.$store.state.a.userLogin.uid);
+      }
+    });
+  },
 }
 </script>
 

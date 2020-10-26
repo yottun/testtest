@@ -46,9 +46,21 @@
                     v-model="pickedSex"
                   />
                   <label for="male">男</label>
-                  <input name="sex" id="female" type="radio" value="女" v-model="pickedSex"/>
+                  <input
+                    name="sex"
+                    id="female"
+                    type="radio"
+                    value="女"
+                    v-model="pickedSex"
+                  />
                   <label for="female">女</label>
-                  <input name="sex" id="queer" type="radio" value="どちらでもない" v-model="pickedSex"/>
+                  <input
+                    name="sex"
+                    id="queer"
+                    type="radio"
+                    value="どちらでもない"
+                    v-model="pickedSex"
+                  />
                   <label for="queer">どちらでもない</label>
                 </div>
                 <CInput
@@ -75,18 +87,47 @@
                 </CInput>
                 <div>管理栄養士免許<br /></div>
                 <div class="picked-license">
-                  <input name="picked-license" id="yes" type="radio" value="あり" v-model="pickedLicense"/>
+                  <input
+                    name="picked-license"
+                    id="yes"
+                    type="radio"
+                    value="あり"
+                    v-model="pickedLicense"
+                  />
                   <label for="yes">あり</label>
-                  <input name="picked-license" id="no" type="radio" value="なし" v-model="pickedLicense"/>
+                  <input
+                    name="picked-license"
+                    id="no"
+                    type="radio"
+                    value="なし"
+                    v-model="pickedLicense"
+                  />
                   <label for="no">なし</label>
                 </div>
                 <div>栄養指導経験<br /></div>
                 <div class="picked-experience">
-                  <input name="picked-experience" id="picked-experience-yes" type="radio" value="あり" v-model="pickedExperience"/>
+                  <input
+                    name="picked-experience"
+                    id="picked-experience-yes"
+                    type="radio"
+                    value="あり"
+                    v-model="pickedExperience"
+                  />
                   <label for="picked-experience-yes">あり</label>
-                  <input name="picked-experience" id="picked-experience-yes-no" type="radio" value="なし" v-model="pickedExperience"/>
+                  <input
+                    name="picked-experience"
+                    id="picked-experience-yes-no"
+                    type="radio"
+                    value="なし"
+                    v-model="pickedExperience"
+                  />
                   <label for="picked-experience-yes-no">なし</label>
-                  <input name="experience-yes" type="text" placeholder="ありの場合" v-model="experienceYes" />年
+                  <input
+                    name="experience-yes"
+                    type="text"
+                    placeholder="ありの場合"
+                    v-model="experienceYes"
+                  />年
                 </div>
                 <CButton color="success" block @click="nutritionist_register"
                   >Create Account</CButton
@@ -158,6 +199,13 @@ export default {
               experienceYes: {
                 stringValue: this.experienceYes,
               },
+              // created_at: _created_at
+              // createdAt: {
+              //   stringValue: firebase.firestore.FieldValue.serverTimestamp(),
+              //   },
+              // updatedAt: {
+              //   stringValue: firebase.firestore.FieldValue.serverTimestamp(),
+              // }
             },
           },
           {
@@ -178,6 +226,7 @@ export default {
       this.birthday = "";
       this.address = "";
       this.experienceYes = "";
+      this.$router.push("/");
       // console.log(checkedLicense);
     },
   },

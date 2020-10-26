@@ -5,9 +5,8 @@
         <CCard class="">
           <CCardBody class="">
             <CForm>
-              <h1>クライアント登録</h1>
+              <h1>クライアント新規登録</h1>
               <h2>基本情報入力</h2>
-              <p class="text-muted">プロフィール登録</p>
               <CInput id="name" type="text" v-model="name" label="名前">
                 <template #prepend-content><CIcon name="cil-user" /></template>
               </CInput>
@@ -116,8 +115,11 @@ export default {
           pickedSex: this.pickedSex,
           birthday: this.birthday,
           address: this.address,
+          // createdAt:firebase.firestore.Timestamp,
+          // updatedAt:firebase.firestore.Timestamp 
         });
-      alert(this.$store.state.a.userLogin.uid);
+      // alert(this.$store.state.a.userLogin.uid);
+      this.$router.push("/");
     },
   },
 };

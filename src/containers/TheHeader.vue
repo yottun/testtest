@@ -17,24 +17,8 @@
       <CHeaderNavItem class="px-3">
         <CHeaderNavLink to="/mypage"> MyPage </CHeaderNavLink>
       </CHeaderNavItem>
-      <CHeaderNavItem class="px-3">
-        <CHeaderNavLink to="/users" exact> Users </CHeaderNavLink>
-      </CHeaderNavItem>
-      <CHeaderNavItem class="px-3">
-        <CHeaderNavLink> Settings </CHeaderNavLink>
-      </CHeaderNavItem>
     </CHeaderNav>
     <CHeaderNav class="mr-4">
-      <CHeaderNavItem class="d-md-down-none mx-2">
-        <CHeaderNavLink>
-          <CIcon name="cil-bell" />
-        </CHeaderNavLink>
-      </CHeaderNavItem>
-      <CHeaderNavItem class="d-md-down-none mx-2">
-        <CHeaderNavLink>
-          <CIcon name="cil-list" />
-        </CHeaderNavLink>
-      </CHeaderNavItem>
       <CHeaderNavItem class="d-md-down-none mx-2">
         <CHeaderNavLink>
           <CIcon name="cil-envelope-open" />
@@ -48,7 +32,16 @@
       <TheHeaderDropdownAccnt />
     </CHeaderNav>
     <CSubheader class="px-3 goal">
-      <p>◯◯◯様<br />目標：半年で5kgマイナス{{ userName }}</p>
+      <CRow>
+        <CCol>
+      <p v-if="userData">
+        {{ userData.displayName }} 様 こんにちは
+        <br />
+        メールアドレス：{{ userData.email }}<br />
+        ID：{{ userData.uid }}
+      </p>
+        </CCol>
+      </CRow>
     </CSubheader>
   </CHeader>
 </template>
@@ -61,21 +54,48 @@ import Router from "vue-router";
 export default {
   name: "TheHeader",
   // props: ["user"],
+  // userName: null,
   components: {
     TheHeaderDropdownAccnt,
   },
 
   data() {
     return {
-      userName: this.$store.state.a.userLogin
+      userData: "",
+      // userName: null
       // ユーザー情報
     };
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.commit("getUserData", user);
+        console.log(user);
+        this.userData = this.$store.state.a.userLogin;
+        console.log(this.$store.state.a.userLogin.uid);
+      }
+    });
+    // ,db
+    //     .collection("client")
+    //     .doc("2mOCpuq1sJVLkZfFcztcVvtlpc13")
+    //     .collection("client")
+    //     .get()
+    //     .then(function (doc) {
+    //       if (doc) {
+    //         console.log("Document data:", docs.map(postDoc => doc.id));
+    //       } else {
+    //         console.log("No such document!");
+    //       }
+    //     })
+    //     .catch(function (error) {
+    //       console.log("Error getting document:", error);
+    //     });
   },
   methods: {
     logout() {
       // this.$store.dispatch("logout");
       firebase.auth().signOut();
-      this.$router.push("/pages/login-google");
+      this.$router.push("/pages/google-login");
     },
   },
 };

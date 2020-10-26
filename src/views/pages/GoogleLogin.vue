@@ -1,40 +1,45 @@
 <template>
-  <div class="c-app flex-row align-items-center">
+  <div class="d-flex align-items-center min-vh-100"
+    :style="{
+      backgroundSize: 'cover',
+      backgroundImage:
+        'url(' + require('@/assets/images/background_image.jpg') + ')',
+    }">
     <CContainer>
       <CRow class="justify-content-center">
-        <CCol md="10">
+        <CCol md="6">
           <CCardGroup>
             <CCard class="p-4">
               <CCardBody>
-                <CForm>
+                <!-- <CForm> -->
                   <h1>ログイン</h1>
                   <p class="text-muted">Sign In to your account</p>
                   <CRow>
-                    <CCol col="6" class="text-left">
+                    <CCol col="" class="text-left">
                       <CButton color="primary" class="px-3" @click="googleLogin"
                         >Googleログイン</CButton
                       >
                     </CCol>
-                    <CCol col="6" class="text-right">
+                    <!-- <CCol col="6" class="text-right">
                       <CButton color="link" class="px-0"
                         >パスワードを忘れた方</CButton
                       >
                       <CButton color="link" class="d-lg-none"
                         >Register now!</CButton
                       >
-                    </CCol>
+                    </CCol> -->
                   </CRow>
-                </CForm>
+                <!-- </CForm> -->
               </CCardBody>
             </CCard>
-            <CCard
+            <!-- <CCard
               color="primary"
               text-color="white"
               class="text-center py-5 d-md-down-none"
               body-wrapper
-            >
-              <CCardBody>
-                <h2>アカウントを<br>作ろう！</h2>
+            > -->
+              <!-- <CCardBody> -->
+                <!-- <h2>アカウントを<br>作ろう！</h2>
                 <p>
                 </p>
                 <CButton
@@ -44,9 +49,9 @@
                   @click="toRegister"
                 >
                   新規登録
-                </CButton>
-              </CCardBody>
-            </CCard>
+                </CButton> -->
+              <!-- </CCardBody> -->
+            <!-- </CCard> -->
           </CCardGroup>
         </CCol>
       </CRow>
@@ -70,7 +75,7 @@ export default {
       firebase
         .auth()
         .signInWithRedirect(new firebase.auth.GoogleAuthProvider());
-        this.$router.push("/");
+        this.$router.push("/mypage");
     },
     toRegister() {
       this.$router.push("register");
@@ -78,3 +83,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.card-body {
+  margin: 0 auto;
+}
+</style>
