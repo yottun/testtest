@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Users></Users>
+    <Users v-if="userData"></Users>
   </div>
 </template>
 

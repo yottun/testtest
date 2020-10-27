@@ -68,21 +68,17 @@ function configRoutes() {
           path: 'basicInformation',
           name: 'BasicInformation',
           component: BasicInformation,
-          // beforeEnter(to, from, next) {
-          //   if (store.getters.idToken) {
-          //     next();
-          //   } else {
-          //     next('/pages/google-login');
-          //   }
-          // }
         },
         {
           path: 'client-create',
           name: 'ClientCreate',
           component: ClientCreate
         },
-
-
+        {
+          path: 'nutritionist-register',
+          name: 'NutritionistRegister',
+          component: NutritionistRegister
+        },
         {
           path: 'test',
           name: 'Test',
@@ -188,11 +184,6 @@ function configRoutes() {
           path: 'register',
           name: 'Register',
           component: Register
-        },
-        {
-          path: 'nutritionist-register',
-          name: 'NutritionistRegister',
-          component: NutritionistRegister
         },
       ]
     }

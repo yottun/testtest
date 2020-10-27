@@ -34,14 +34,23 @@
     <CSubheader class="px-3 goal">
       <CRow>
         <CCol>
-      <p v-if="userData">
-        {{ userData.displayName }} 様 こんにちは
-        <br />
-        メールアドレス：{{ userData.email }}<br />
-        ID：{{ userData.uid }}
-      </p>
+          <div v-if="userData">
+            {{ userData.displayName }} 様 こんにちは
+            <br />
+            メールアドレス：{{ userData.email }}<br />
+            ID：{{ userData.uid }}
+          </div>
         </CCol>
       </CRow>
+      <CRow class="ml-3">
+        <CCol></CCol>
+      </CRow>
+      <CRow class="ml-3 mr-auto">
+        <CCol></CCol>
+      </CRow>
+      <div class="d-flex mt-4">
+        <button class="m-auto" @click="nutritionistRegister">Myプロフィール登録</button>
+      </div>
     </CSubheader>
   </CHeader>
 </template>
@@ -53,8 +62,6 @@ import Router from "vue-router";
 
 export default {
   name: "TheHeader",
-  // props: ["user"],
-  // userName: null,
   components: {
     TheHeaderDropdownAccnt,
   },
@@ -62,40 +69,35 @@ export default {
   data() {
     return {
       userData: "",
-      // userName: null
-      // ユーザー情報
+      // nutritionistData: null,
     };
   },
   created() {
+    const db = firebase.firestore();
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.$store.commit("getUserData", user);
-        console.log(user);
         this.userData = this.$store.state.a.userLogin;
-        console.log(this.$store.state.a.userLogin.uid);
+        console.log(this.$store.state.a.userLogin.uid)
+        db.collection("nutritionist")
+          .doc(this.$store.state.a.userLogin.uid)
+          .get()
+          .then(function(doc) {
+              if(doc.exists) {
+                console.log(doc.data().birthday)
+              }
+          });
       }
     });
-    // ,db
-    //     .collection("client")
-    //     .doc("2mOCpuq1sJVLkZfFcztcVvtlpc13")
-    //     .collection("client")
-    //     .get()
-    //     .then(function (doc) {
-    //       if (doc) {
-    //         console.log("Document data:", docs.map(postDoc => doc.id));
-    //       } else {
-    //         console.log("No such document!");
-    //       }
-    //     })
-    //     .catch(function (error) {
-    //       console.log("Error getting document:", error);
-    //     });
   },
   methods: {
     logout() {
       // this.$store.dispatch("logout");
       firebase.auth().signOut();
       this.$router.push("/pages/google-login");
+    },
+    nutritionistRegister() {
+      this.$router.push("nutritionist-register");
     },
   },
 };

@@ -42,16 +42,8 @@ export default {
   data() {
     return {
       // items: usersData,
-      items: [
-        {
-          // username: null,
-          // registered: "2012/01/01",
-          // role: "Member",
-          // status: "Active",
-        },
-      ],
-      userData: "",
-      // users: null,
+      items: [],
+      userData: null,
       fields: [
         { key: "username", label: "名前", _classes: "font-weight-bold" },
         { key: "email", label: "email" },
@@ -63,7 +55,7 @@ export default {
     };
   },
   created() {
-    var db = firebase.firestore();
+    const db = firebase.firestore();
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {

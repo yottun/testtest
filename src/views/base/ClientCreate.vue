@@ -119,7 +119,7 @@ export default {
           // updatedAt:firebase.firestore.Timestamp 
         });
       // alert(this.$store.state.a.userLogin.uid);
-      this.$router.push("/");
+      this.$router.push("/mypage");
     },
   },
 };

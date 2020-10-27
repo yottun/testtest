@@ -1,19 +1,11 @@
 <template>
-  <div
-    class="d-flex align-items-center min-vh-100"
-    :style="{
-      backgroundSize: 'cover',
-      backgroundImage:
-        'url(' + require('@/assets/images/background_image.jpg') + ')',
-    }"
-  >
+  <div>
     <CContainer fluid>
       <CRow class="justify-content-center">
-        <CCol md="6">
+        <CCol md="">
           <CCard class="mx-4 mb-0">
             <CCardBody class="p-4">
               <CForm>
-                <h1>Nutritionist Register</h1>
                 <h2>基本情報入力</h2>
                 <p class="text-muted">プロフィール登録</p>
                 <CInput id="name" type="text" v-model="name" label="名前">
@@ -161,72 +153,70 @@ export default {
     };
   },
   computed: {
-    idToken() {
-      return this.$store.getters.idToken;
-    },
+    // idToken() {
+    //   return this.$store.getters.idToken;
+    // },
   },
   methods: {
     nutritionist_register() {
-      axios
-        .post(
-          "/nutritionist",
-          {
-            fields: {
-              name: {
-                stringValue: this.name,
-              },
-              ruby: {
-                stringValue: this.ruby,
-              },
-              nickname: {
-                stringValue: this.nickname,
-              },
-              pickedSex: {
-                stringValue: this.pickedSex,
-              },
-              birthday: {
-                stringValue: this.birthday,
-              },
-              address: {
-                stringValue: this.address,
-              },
-              pickedLicense: {
-                stringValue: this.pickedLicense,
-              },
-              pickedExperience: {
-                stringValue: this.pickedExperience,
-              },
-              experienceYes: {
-                stringValue: this.experienceYes,
-              },
-              // created_at: _created_at
-              // createdAt: {
-              //   stringValue: firebase.firestore.FieldValue.serverTimestamp(),
-              //   },
-              // updatedAt: {
-              //   stringValue: firebase.firestore.FieldValue.serverTimestamp(),
-              // }
-            },
-          },
-          {
-            // headers: {
-            //   Authorization: `Bearer ${this.idToken}`,
-            // },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((eror) => {
-          console.log(error);
-        });
+      firebase.firestore().collection("nutritionist").doc(this.$store.state.a.userLogin.uid).set({
+        name: this.name,
+        ruby: this.ruby,
+        nickname: this.nickname,
+        pickedSex: this.pickedSex,
+        birthday: this.birthday,
+        address: this.address,
+        pickedLicense: this.pickedLicense,
+        pickedExperience: this.pickedExperience,
+        experienceYes: this.experienceYes,
+        // name: {
+        //   stringValue: this.name,
+        // },
+        // ruby: {
+        //   stringValue: this.ruby,
+        // },
+        // nickname: {
+        //   stringValue: this.nickname,
+        // },
+        // pickedSex: {
+        //   stringValue: this.pickedSex,
+        // },
+        // birthday: {
+        //   stringValue: this.birthday,
+        // },
+        // address: {
+        //   stringValue: this.address,
+        // },
+        // pickedLicense: {
+        //   stringValue: this.pickedLicense,
+        // },
+        // pickedExperience: {
+        //   stringValue: this.pickedExperience,
+        // },
+        // experienceYes: {
+        //   stringValue: this.experienceYes,
+        // },
+        // created_at: _created_at
+        // createdAt: {
+        //   stringValue: firebase.firestore.FieldValue.serverTimestamp(),
+        //   },
+        // updatedAt: {
+        //   stringValue: firebase.firestore.FieldValue.serverTimestamp(),
+        // }
+      }),
+        {
+          // headers: {
+          //   Authorization: `Bearer ${this.idToken}`,
+          // },
+        };
+
       this.name = "";
       this.ruby = "";
       this.nickname = "";
       this.birthday = "";
       this.address = "";
       this.experienceYes = "";
-      this.$router.push("/");
+      this.$router.push("/mypage");
       // console.log(checkedLicense);
     },
   },

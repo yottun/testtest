@@ -1,8 +1,8 @@
 <template>
-  <div class="c-app">
-    <TheSidebar/>
+  <div v-if="userData" class="c-app">
+    <TheSidebar />
     <CWrapper>
-      <TheHeader :user="userData"/>
+      <TheHeader :user="userData" />
       <div class="c-body">
         <main class="c-main">
           <CContainer fluid>
@@ -12,35 +12,41 @@
           </CContainer>
         </main>
       </div>
-      <TheFooter/>
+      <TheFooter />
     </CWrapper>
   </div>
 </template>
 
 <script>
-import TheSidebar from './TheSidebar'
-import TheHeader from './TheHeader'
-import TheFooter from './TheFooter'
-import firebase from 'firebase'
+import TheSidebar from "./TheSidebar";
+import TheHeader from "./TheHeader";
+import TheFooter from "./TheFooter";
+import firebase from "firebase";
 
 export default {
-  name: 'TheContainer',
+  name: "TheContainer",
   data() {
     return {
       isLogin: false,
       userData: null,
       // loading: true
     };
-    },
-    methods: {
-
-    },
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.commit("getUserData", user);
+        this.userData = this.$store.state.a.userLogin;
+      }
+    });
+  },
+  methods: {},
   components: {
     TheSidebar,
     TheHeader,
-    TheFooter
+    TheFooter,
   },
-}
+};
 </script>
 
 <style scoped>
