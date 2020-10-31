@@ -15,6 +15,9 @@ const BasicInformation = () => import('@/views/charts/BasicInformation')
 const Breadcrumbs = () => import('@/views/base/Breadcrumbs')
 const Test = () => import('@/views/base/Test')
 const ClientCreate = () => import('@/views/base/ClientCreate')
+const ClientInformation = () => import('@/views/base/ClientInformation')
+const DietaryInformation = () => import('@/views/base/DietaryInformation')
+const NutritionistRegister = () => import('@/views/base/NutritionistRegister')
 
 // Views - Icons
 const CoreUIIcons = () => import('@/views/icons/CoreUIIcons')
@@ -28,7 +31,6 @@ const Page500 = () => import('@/views/pages/Page500')
 // const Login = () => import('@/views/pages/Login')
 const GoogleLogin = () => import('@/views/pages/GoogleLogin')
 const Register = () => import('@/views/pages/Register')
-const NutritionistRegister = () => import('@/views/pages/NutritionistRegister')
 
 // Users
 const Users = () => import('@/views/users/Users')
@@ -43,6 +45,22 @@ export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: configRoutes()
 })
+
+// router.beforeEach((to, from, next) => {
+//   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+//   if (requiresAuth) {
+//     if (!store.state.uesr) {
+//       next({
+//         path: 'google-login',
+//         query: { redirect: to.fullPath }
+//       })
+//     } else {
+//       next()
+//     }
+//   } else {
+//     next()
+//   }
+// });
 
 function configRoutes() {
   return [
@@ -68,6 +86,11 @@ function configRoutes() {
           path: 'basicInformation',
           name: 'BasicInformation',
           component: BasicInformation,
+        },
+        {
+          path: 'clientInformation',
+          name: 'ClientInformation',
+          component: ClientInformation,
         },
         {
           path: 'client-create',
@@ -122,6 +145,11 @@ function configRoutes() {
               path: 'breadcrumbs',
               name: 'Breadcrumbs',
               component: Breadcrumbs
+            },
+            {
+              path: 'dietaryInformation',
+              name: 'DietaryInformation',
+              component: DietaryInformation
             },
           ]
         },

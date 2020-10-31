@@ -116,7 +116,7 @@ export default {
           birthday: this.birthday,
           address: this.address,
           // createdAt:firebase.firestore.Timestamp,
-          // updatedAt:firebase.firestore.Timestamp 
+          // updatedAt:firebase.firestore.Timestamp
         });
       // alert(this.$store.state.a.userLogin.uid);
       this.$router.push("/mypage");

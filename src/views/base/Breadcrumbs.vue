@@ -21,7 +21,7 @@
           </CCard>
         </CCol>
         <CCol>
-          <BasicInformation></BasicInformation>
+          <ClientInformation></ClientInformation>
         </CCol>
     </div>
     <div class="split-box right-box">
@@ -35,13 +35,22 @@
 <script>
 import * as Charts from "../charts/index";
 import BasicInformation from "../charts/BasicInformation";
+import ClientInformation from "./ClientInformation";
+import usersData from '../users/UsersData';
 
 export default {
   name: "Charts",
   components: {
     ...Charts,
     BasicInformation,
+    ClientInformation
   },
+  data() {
+    return {
+    }
+  },
+  created() {
+  }
 };
 </script>
 

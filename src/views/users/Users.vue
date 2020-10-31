@@ -9,7 +9,7 @@
             striped
             :items="items"
             :fields="fields"
-            :items-per-page="10"
+            :items-per-page="8"
             clickable-rows
             :active-page="activePage"
             @row-clicked="rowClicked"
@@ -37,6 +37,8 @@ import usersData from "./UsersData";
 import firebase from "firebase";
 // import 'firebase/firestore'
 
+const db = firebase.firestore();
+
 export default {
   name: "Users",
   data() {
@@ -50,39 +52,32 @@ export default {
         { key: "sex", label: "性別" },
         { key: "birthday", label: "誕生日" },
         { key: "address", label: "出身地" },
+        { key: "id", label: "id" },
       ],
       activePage: 1,
     };
   },
   created() {
-    const db = firebase.firestore();
-
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.$store.commit("getUserData", user);
-        // db.collection("nutritionist")
-        //   .get()
-        //   .then((querySnapshot) => {
-        //     querySnapshot.forEach((doc) => {
-        //       this.items.push({ username: doc.data().name});
-        //       console.log(doc.data().name);
-        //     });
-        //   });
         db.collection("client")
           .doc(this.$store.state.a.userLogin.uid)
           .collection("client")
           .get()
           .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
+              console.log(this.$store.state.a.userLogin);
               this.items.push({
                 username: doc.data().name,
                 email: doc.data().email,
                 sex: doc.data().pickedSex,
                 birthday: doc.data().birthday,
                 address: doc.data().address,
+                id: doc.id
               });
               // this.items.push({ email: doc.data().email });
-              console.log(doc.data().name);
+              console.log(doc.id);
             });
           });
       }
@@ -113,8 +108,9 @@ export default {
           "primary";
       }
     },
-    rowClicked(item, index) {
+    rowClicked(id) {
       // this.$router.push({ path: `users/${index + 1}` });
+      this.$store.commit("getClientData", id);
       this.$router.push("/base/breadcrumbs");
     },
     pageChange(val) {

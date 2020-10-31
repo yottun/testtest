@@ -7,6 +7,7 @@ import { iconsSet as icons } from './assets/icons/icons.js'
 import store from './store'
 import axios from 'axios'
 import firebase from "firebase"
+import { cibCcStripe } from '@coreui/icons'
 
 // firebase設定
 Vue.config.productionTip = false
@@ -21,6 +22,10 @@ var firebaseConfig = {
   appId: "1:257878399905:web:555a2174685ca25e4849e0"
 };
 firebase.initializeApp(firebaseConfig);
+// firebase.auth().onAuthStateChanged(user => {
+//   store.commit("updateUser", { user });
+// });
+
 
 export const db = firebase.firestore();
 

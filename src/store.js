@@ -29,7 +29,8 @@ const moduleA = {
   state: {
     idToken: null,
     userLogin: null,
-    clientData: null
+    clientData: null,
+    clientInformation: null
   },
   getters: {
     idToken: state => state.idToken
@@ -43,6 +44,12 @@ const moduleA = {
     },
     getClientData(state, client) {
       state.clientData = client;
+    },
+    updateUser(state, { user }) {
+      Vue.set(state, "user", user);
+    },
+    getClientInformation(state, clientInformation) {
+      state.clientInformation = clientInformation;
     }
   },
   actions: {

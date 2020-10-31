@@ -28,7 +28,7 @@ export default {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.$store.commit("getUserData", user);
-        console.log(user);
+        console.log(this.$store.state.a.userLogin.displayName);
         this.userData = this.$store.state.a.userLogin;
         console.log(this.$store.state.a.userLogin.uid);
       }
