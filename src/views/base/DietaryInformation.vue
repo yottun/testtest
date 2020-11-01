@@ -1,6 +1,5 @@
 <template>
   <CRow>
-    <div class="split-box left-box">
       <CCol>
         <CCard>
           <CCardHeader>
@@ -33,14 +32,9 @@
             平均睡眠時間：{{ timeOfSleeping }}時間<br />
             運動習慣・種類：{{ exerciseHabits }}<br />
             身体活動レベル：{{ activityIntensity }}<br />
-          <button @click="deleteClient">クライアント削除</button>
           </CCardBody>
         </CCard>
       </CCol>
-    </div>
-    <div class="split-box right-box">
-      <CCol> </CCol>
-    </div>
   </CRow>
 </template>
 
@@ -73,7 +67,7 @@ export default {
     };
   },
   created() {
-    const clientData = this.$store.state.a.clientInformation;
+    const clientData = this.$store.state.a.clientData;
     // this.getData();
     this.breakfast = clientData.breakfast;
     this.lunch = clientData.lunch;

@@ -48,9 +48,9 @@ const moduleA = {
     updateUser(state, { user }) {
       Vue.set(state, "user", user);
     },
-    getClientInformation(state, clientInformation) {
-      state.clientInformation = clientInformation;
-    }
+    // getClientInformation(state, clientInformation) {
+    //   state.clientInformation = clientInformation;
+    // }
   },
   actions: {
     // autoLogin({ commit, dispatch }) {

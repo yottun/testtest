@@ -14,7 +14,7 @@
                 class="col-sm-3"
                 id="breakfast"
                 type="text"
-                v-model="clientInformation.breakfast"
+                v-model="clientData.breakfast"
                 label="朝食"
                 append="時"
               >
@@ -23,7 +23,7 @@
                 class="col-sm-3"
                 id="lunch"
                 type="text"
-                v-model="clientInformation.lunch"
+                v-model="clientData.lunch"
                 label="昼食"
                 append="時"
               >
@@ -32,7 +32,7 @@
                 class="col-sm-3"
                 id="dinner"
                 type="text"
-                v-model="clientInformation.dinner"
+                v-model="clientData.dinner"
                 label="夕食"
                 append="時"
               >
@@ -46,35 +46,35 @@
                 placeholder="Content..."
                 horizontal
                 rows="3"
-                v-model="clientInformation.breakfastMenu"
+                v-model="clientData.breakfastMenu"
               />
               <CTextarea
                 label="昼食"
                 placeholder="Content..."
                 horizontal
                 rows="3"
-                v-model="clientInformation.lunchMenu"
+                v-model="clientData.lunchMenu"
               />
               <CTextarea
                 label="夕食"
                 placeholder="Content..."
                 horizontal
                 rows="3"
-                v-model="clientInformation.dinnerMenu"
+                v-model="clientData.dinnerMenu"
               />
               <CTextarea
                 label="間食"
                 placeholder="Content..."
                 horizontal
                 rows="3"
-                v-model="clientInformation.betweenMeals"
+                v-model="clientData.betweenMeals"
               />
               <CTextarea
                 label="外食"
                 placeholder="Content..."
                 horizontal
                 rows="3"
-                v-model="clientInformation.eatOut"
+                v-model="clientData.eatOut"
               />
               <hr />
 
@@ -84,7 +84,7 @@
                 placeholder="Content..."
                 horizontal
                 rows="3"
-                v-model="clientInformation.luxuryFood"
+                v-model="clientData.luxuryFood"
               />
 
               <CTextarea
@@ -92,35 +92,35 @@
                 placeholder="Content..."
                 horizontal
                 rows="3"
-                v-model="clientInformation.mainCook"
+                v-model="clientData.mainCook"
               />
               <CTextarea
                 label="アレルギー"
                 placeholder="Content..."
                 horizontal
                 rows="3"
-                v-model="clientInformation.allergy"
+                v-model="clientData.allergy"
               />
               <CTextarea
                 label="好き嫌い"
                 placeholder="Content..."
                 horizontal
                 rows="3"
-                v-model="clientInformation.likeAndDislike"
+                v-model="clientData.likeAndDislike"
               />
               <CTextarea
                 label="サプリメント"
                 placeholder="Content..."
                 horizontal
                 rows="3"
-                v-model="clientInformation.supplement"
+                v-model="clientData.supplement"
               />
               <CTextarea
                 label="服薬"
                 placeholder="Content..."
                 horizontal
                 rows="3"
-                v-model="clientInformation.medicine"
+                v-model="clientData.medicine"
               />
               <hr />
 
@@ -130,7 +130,7 @@
                 class="col-sm-3"
                 id="eatMoning"
                 type="text"
-                v-model="clientInformation.wakeUpTime"
+                v-model="clientData.wakeUpTime"
                 label="起床時間"
                 append="時"
               >
@@ -139,7 +139,7 @@
                 class="col-sm-3"
                 id="eatMoning"
                 type="text"
-                v-model="clientInformation.bedTime"
+                v-model="clientData.bedTime"
                 label="就寝時間"
                 append="時"
               >
@@ -148,7 +148,7 @@
                 class="col-sm-3"
                 id="eatMoning"
                 type="text"
-                v-model="clientInformation.timeOfSleeping"
+                v-model="clientData.timeOfSleeping"
                 label="平均睡眠時間"
                 append="時間"
               >
@@ -158,14 +158,14 @@
                 placeholder="Content..."
                 horizontal
                 rows="3"
-                v-model="clientInformation.exerciseHabits"
+                v-model="clientData.exerciseHabits"
               />
               <CTextarea
                 label="活動強度"
                 placeholder="Content..."
                 horizontal
                 rows="3"
-                v-model="clientInformation.activityIntensity"
+                v-model="clientData.activityIntensity"
               />
               <!-- <CSelect
                 label="朝"
@@ -470,14 +470,14 @@
 </template>
 
 <script>
-import * as Charts from "./index.js";
+// import * as Charts from "./index.js";
 import axios from "axios";
 import firebase from "firebase";
 
 export default {
-  name: "Charts",
+  // name: "Charts",
   components: {
-    ...Charts,
+    // ...Charts,
   },
 
   name: "BasicInformation",
@@ -486,7 +486,7 @@ export default {
   data() {
     return {
       id: null,
-      clientInformation: {
+      clientData: {
         breakfast: null,
         lunch: null,
         dinner: null,
@@ -587,31 +587,31 @@ export default {
         .doc(this.id)
         .set(
           {
-            breakfast: this.clientInformation.breakfast,
-            lunch: this.clientInformation.lunch,
-            dinner: this.clientInformation.dinner,
-            breakfastMenu: this.clientInformation.breakfastMenu,
-            lunchMenu: this.clientInformation.lunchMenu,
-            dinnerMenu: this.clientInformation.dinnerMenu,
-            betweenMeals: this.clientInformation.betweenMeals,
-            eatOut: this.clientInformation.eatOut,
-            luxuryFood: this.clientInformation.luxuryFood,
-            mainCook: this.clientInformation.mainCook,
-            allergy: this.clientInformation.allergy,
-            likeAndDislike: this.clientInformation.likeAndDislike,
-            supplement: this.clientInformation.supplement,
-            medicine: this.clientInformation.medicine,
-            wakeUpTime: this.clientInformation.wakeUpTime,
-            bedTime: this.clientInformation.bedTime,
-            timeOfSleeping: this.clientInformation.timeOfSleeping,
-            exerciseHabits: this.clientInformation.exerciseHabits,
-            activityIntensity: this.clientInformation.activityIntensity,
+            breakfast: this.clientData.breakfast,
+            lunch: this.clientData.lunch,
+            dinner: this.clientData.dinner,
+            breakfastMenu: this.clientData.breakfastMenu,
+            lunchMenu: this.clientData.lunchMenu,
+            dinnerMenu: this.clientData.dinnerMenu,
+            betweenMeals: this.clientData.betweenMeals,
+            eatOut: this.clientData.eatOut,
+            luxuryFood: this.clientData.luxuryFood,
+            mainCook: this.clientData.mainCook,
+            allergy: this.clientData.allergy,
+            likeAndDislike: this.clientData.likeAndDislike,
+            supplement: this.clientData.supplement,
+            medicine: this.clientData.medicine,
+            wakeUpTime: this.clientData.wakeUpTime,
+            bedTime: this.clientData.bedTime,
+            timeOfSleeping: this.clientData.timeOfSleeping,
+            exerciseHabits: this.clientData.exerciseHabits,
+            activityIntensity: this.clientData.activityIntensity,
           },
           { merge: true }
         )
         .then(() => {})
         .catch((error) => {});
-      this.$store.commit("getClientInformation", this.clientInformation);
+      this.$store.commit("getClientData", this.clientData);
       this.$router.push("/base/dietaryInformation");
     },
     // validator(val) {

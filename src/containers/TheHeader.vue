@@ -48,9 +48,9 @@
       <CRow class="ml-3 mr-auto">
         <CCol></CCol>
       </CRow>
-      <div class="d-flex mt-4">
+      <!-- <div class="d-flex mt-4">
         <button class="m-auto" @click="nutritionistRegister">Myプロフィール登録</button>
-      </div>
+      </div> -->
     </CSubheader>
   </CHeader>
 </template>
@@ -96,9 +96,9 @@ export default {
       firebase.auth().signOut();
       this.$router.push("/pages/google-login");
     },
-    nutritionistRegister() {
-      this.$router.push("nutritionist-register");
-    },
+    // nutritionistRegister() {
+    //   this.$router.push("nutritionist-register");
+    // },
   },
 };
 </script>

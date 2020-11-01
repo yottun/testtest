@@ -22,6 +22,7 @@
         </CCol>
         <CCol>
           <ClientInformation></ClientInformation>
+          <DietaryInformation></DietaryInformation>
         </CCol>
     </div>
     <div class="split-box right-box">
@@ -35,6 +36,7 @@
 <script>
 import * as Charts from "../charts/index";
 import BasicInformation from "../charts/BasicInformation";
+import DietaryInformation from "./DietaryInformation";
 import ClientInformation from "./ClientInformation";
 import usersData from '../users/UsersData';
 
@@ -43,7 +45,8 @@ export default {
   components: {
     ...Charts,
     BasicInformation,
-    ClientInformation
+    ClientInformation,
+    DietaryInformation
   },
   data() {
     return {

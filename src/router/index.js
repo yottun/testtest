@@ -13,7 +13,7 @@ const BasicInformation = () => import('@/views/charts/BasicInformation')
 
 // Views - Components
 const Breadcrumbs = () => import('@/views/base/Breadcrumbs')
-const Test = () => import('@/views/base/Test')
+// const Test = () => import('@/views/base/Test')
 const ClientCreate = () => import('@/views/base/ClientCreate')
 const ClientInformation = () => import('@/views/base/ClientInformation')
 const DietaryInformation = () => import('@/views/base/DietaryInformation')
@@ -101,11 +101,6 @@ function configRoutes() {
           path: 'nutritionist-register',
           name: 'NutritionistRegister',
           component: NutritionistRegister
-        },
-        {
-          path: 'test',
-          name: 'Test',
-          component: Test
         },
         {
           path: 'users',
