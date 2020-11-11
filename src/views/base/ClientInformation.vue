@@ -3,7 +3,7 @@
     <CRow>
       <CCol>
         <CCard>
-          <CCardHeader>
+          <CCardHeader class="client-header">
             <strong>クライアント情報</strong>
           </CCardHeader>
           <CCardBody>
@@ -13,6 +13,10 @@
             メールアドレス：{{ email }}<br />
             ID：{{ id }}<br />
             性別：{{ sex }}<br />
+            身長：{{ height }}<br />
+            体重：{{ weight }}<br />
+            BMI：{{ bmi }}<br />
+            タイプ：{{ type }}<br />
             <button @click="deleteClient">クライアント削除</button>
           </CCardBody>
         </CCard>
@@ -33,7 +37,10 @@ export default {
       email: null,
       id: null,
       sex: null,
-      id: null,
+      height: null,
+      weight: null,
+      bmi: null,
+      type: null,
       breakfast: null,
       lunch: null,
       dinner: null,
@@ -62,6 +69,9 @@ export default {
     this.birthday = clientData.birthday;
     this.email = clientData.email;
     this.id = clientData.id;
+    this.height = clientData.height;
+    this.weight = clientData.weight;
+    this.type = clientData.type;
     this.sex = clientData.sex;
     this.breakfast = clientData.breakfast;
     this.lunch = clientData.lunch;
@@ -82,6 +92,7 @@ export default {
     this.timeOfSleeping = clientData.timeOfSleeping;
     this.exerciseHabits = clientData.exerciseHabits;
     this.activityIntensity = clientData.activityIntensity;
+    this.bmi = Math.round((this.weight/(this.height/100)/(this.height/100))*100)/100
   },
   methods: {
     deleteClient() {
@@ -108,3 +119,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  button {
+    margin-top: 10px;
+  }
+  .client-header {
+    background-color: #FCE38A;
+  }
+</style>

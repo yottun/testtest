@@ -1,7 +1,7 @@
 <template>
   <div>
-    <CRow class="">
-      <CCol md="">
+    <CRow>
+      <CCol class="client-create" xl="8">
         <CCard class="">
           <CCardBody class="">
             <CForm>
@@ -18,6 +18,30 @@
                 type="email"
                 v-model="email"
                 label="メールアドレス"
+              >
+                <template #prepend-content><CIcon name="cil-user" /></template>
+              </CInput>
+              <CInput
+                id="age"
+                type="age"
+                v-model="age"
+                label="年齢"
+              >
+                <template #prepend-content><CIcon name="cil-user" /></template>
+              </CInput>
+              <CInput
+                id="height"
+                type="height"
+                v-model="height"
+                label="身長"
+              >
+                <template #prepend-content><CIcon name="cil-user" /></template>
+              </CInput>
+              <CInput
+                id="weight"
+                type="weight"
+                v-model="weight"
+                label="体重"
               >
                 <template #prepend-content><CIcon name="cil-user" /></template>
               </CInput>
@@ -71,7 +95,7 @@
                 /></template>
               </CInput>
               <CButton color="success" block @click="addClient"
-                >Create Account</CButton
+                >新規登録</CButton
               >
             </CForm>
           </CCardBody>
@@ -94,6 +118,9 @@ export default {
       name: "",
       ruby: "",
       email: "",
+      age: "",
+      height: "",
+      weight: "",
       pickedSex: "",
       birthday: "",
       address: "",
@@ -112,6 +139,9 @@ export default {
           name: this.name,
           ruby: this.ruby,
           email: this.email,
+          age: this.age,
+          height: this.height,
+          weight: this.weight,
           pickedSex: this.pickedSex,
           birthday: this.birthday,
           address: this.address,
@@ -136,5 +166,18 @@ label {
 .experience,
 .picked-experience {
   padding: 15px;
+}
+.btn-success {
+    color: rgb(92, 92, 92);
+    background-color: #FCE38A;
+    border-color: #FCE38A;
+}
+.btn-success:hover {
+    color: white;
+    background-color: #2eb85c;
+    border-color: #2eb85c;
+}
+.client-create {
+  margin: 0 auto;
 }
 </style>

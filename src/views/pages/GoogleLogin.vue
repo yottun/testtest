@@ -1,58 +1,43 @@
 <template>
-  <div class="d-flex align-items-center min-vh-100"
+  <div
+    class="d-flex align-items-center min-vh-100"
     :style="{
       backgroundSize: 'cover',
       backgroundImage:
         'url(' + require('@/assets/images/background_image.jpg') + ')',
-    }">
+    }"
+  >
     <CContainer>
       <CRow class="justify-content-center">
         <CCol md="6">
-          <CCardGroup>
-            <CCard class="p-4">
-              <CCardBody>
-                <!-- <CForm> -->
-                  <h1>ログイン</h1>
-                  <p class="text-muted">Sign In to your account</p>
-                  <CRow>
-                    <CCol col="" class="text-left">
-                      <CButton color="primary" class="px-3" @click="googleLogin"
-                        >Googleログイン</CButton
-                      >
-                    </CCol>
-                    <!-- <CCol col="6" class="text-right">
-                      <CButton color="link" class="px-0"
-                        >パスワードを忘れた方</CButton
-                      >
-                      <CButton color="link" class="d-lg-none"
-                        >Register now!</CButton
-                      >
-                    </CCol> -->
-                  </CRow>
-                <!-- </CForm> -->
-              </CCardBody>
-            </CCard>
-            <!-- <CCard
-              color="primary"
-              text-color="white"
-              class="text-center py-5 d-md-down-none"
-              body-wrapper
-            > -->
-              <!-- <CCardBody> -->
-                <!-- <h2>アカウントを<br>作ろう！</h2>
-                <p>
-                </p>
-                <CButton
-                  color="light"
-                  variant="outline"
-                  size="lg"
-                  @click="toRegister"
-                >
-                  新規登録
-                </CButton> -->
-              <!-- </CCardBody> -->
-            <!-- </CCard> -->
-          </CCardGroup>
+          <CCard class="">
+            <CCardBody>
+              <!-- <CForm> -->
+              <h1>eat+</h1>
+              <p class="text-muted">Sign In to your account</p>
+              <CRow>
+                <CCol col="" class="">
+                  <div class="google-button">
+                    <img
+                      @click="googleLogin"
+                      src="../../assets/icons/btn_google_signin_light_normal_web@2x.png"
+                      alt=""
+                    />
+                  </div>
+                </CCol>
+              </CRow>
+            </CCardBody>
+            <CCardFooter class="">
+              <CRow>
+                <CCol col="6">
+                  <CButton block color="facebook"> Facebook </CButton>
+                </CCol>
+                <CCol col="6">
+                  <CButton block color="twitter"> Twitter </CButton>
+                </CCol>
+              </CRow>
+            </CCardFooter>
+          </CCard>
         </CCol>
       </CRow>
     </CContainer>
@@ -66,8 +51,8 @@ export default {
   name: "GooleLogin",
   data() {
     return {
-    //   email: "",
-    //   password: "",
+      //   email: "",
+      //   password: "",
     };
   },
   methods: {
@@ -75,7 +60,7 @@ export default {
       firebase
         .auth()
         .signInWithRedirect(new firebase.auth.GoogleAuthProvider());
-        this.$router.push("/mypage");
+      this.$router.push("/mypage");
     },
     toRegister() {
       this.$router.push("register");
@@ -85,7 +70,19 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  text-align: center;
+}
 .card-body {
   margin: 0 auto;
+}
+img {
+  height: 40px;
+  transition-duration: 0.3s;
+}
+.google-button:hover img {
+  opacity: 0.6;
+  transition-duration: 0.3s;
+  cursor: pointer;
 }
 </style>

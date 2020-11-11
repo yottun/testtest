@@ -3,7 +3,7 @@
       <CCol>
         <CCard>
           <CCardHeader>
-            <strong>クライアント情報</strong>
+            <strong>食生活状況</strong>
           </CCardHeader>
           <CCardBody>
             <strong>食事時間</strong><br />
@@ -126,3 +126,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.card-header {
+    background-color: #FCE38A;
+}
+</style>

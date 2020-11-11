@@ -10,6 +10,7 @@ const MyPage = () => import('@/views/MyPage')
 
 
 const BasicInformation = () => import('@/views/charts/BasicInformation')
+const Coaching = () => import('@/views/charts/Coaching')
 
 // Views - Components
 const Breadcrumbs = () => import('@/views/base/Breadcrumbs')
@@ -18,6 +19,7 @@ const ClientCreate = () => import('@/views/base/ClientCreate')
 const ClientInformation = () => import('@/views/base/ClientInformation')
 const DietaryInformation = () => import('@/views/base/DietaryInformation')
 const NutritionistRegister = () => import('@/views/base/NutritionistRegister')
+const Chat = () => import('@/views/base/Chat')
 
 // Views - Icons
 const CoreUIIcons = () => import('@/views/icons/CoreUIIcons')
@@ -88,6 +90,11 @@ function configRoutes() {
           component: BasicInformation,
         },
         {
+          path: 'coaching',
+          name: 'Coaching',
+          component: Coaching,
+        },
+        {
           path: 'clientInformation',
           name: 'ClientInformation',
           component: ClientInformation,
@@ -145,6 +152,11 @@ function configRoutes() {
               path: 'dietaryInformation',
               name: 'DietaryInformation',
               component: DietaryInformation
+            },
+            {
+              path: 'chat',
+              name: 'Chat',
+              component: Chat
             },
           ]
         },

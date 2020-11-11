@@ -1,6 +1,6 @@
 <template>
   <div v-if="userData" class="c-app">
-    <TheSidebar />
+    <!-- <TheSidebar /> -->
     <CWrapper>
       <TheHeader :user="userData" />
       <div class="c-body">
@@ -57,5 +57,8 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+.c-body {
+  background-color: snow;
 }
 </style>

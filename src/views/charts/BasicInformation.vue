@@ -1,17 +1,16 @@
 <template>
   <div>
     <CRow>
-      <CCol md="">
+      <CCol>
         <CCard>
-          <CCardHeader>
+          <!-- <CCardHeader>
             <strong>食生活状況確認</strong>
-          </CCardHeader>
-
+          </CCardHeader> -->
           <CCardBody>
             <CForm>
               <p><strong>食事時間</strong></p>
               <CInput
-                class="col-sm-3"
+                class="col-sm-7"
                 id="breakfast"
                 type="text"
                 v-model="clientData.breakfast"
@@ -20,7 +19,7 @@
               >
               </CInput>
               <CInput
-                class="col-sm-3"
+                class="col-sm-7"
                 id="lunch"
                 type="text"
                 v-model="clientData.lunch"
@@ -29,7 +28,7 @@
               >
               </CInput>
               <CInput
-                class="col-sm-3"
+                class="col-sm-7"
                 id="dinner"
                 type="text"
                 v-model="clientData.dinner"
@@ -127,7 +126,7 @@
               <p><strong>生活状況確認</strong></p>
 
               <CInput
-                class="col-sm-3"
+                class="col-sm-7"
                 id="eatMoning"
                 type="text"
                 v-model="clientData.wakeUpTime"
@@ -136,7 +135,7 @@
               >
               </CInput>
               <CInput
-                class="col-sm-3"
+                class="col-sm-7"
                 id="eatMoning"
                 type="text"
                 v-model="clientData.bedTime"
@@ -145,7 +144,7 @@
               >
               </CInput>
               <CInput
-                class="col-sm-3"
+                class="col-sm-7"
                 id="eatMoning"
                 type="text"
                 v-model="clientData.timeOfSleeping"
@@ -334,12 +333,7 @@
                   </CCol>
                 </CRow>
               </template> -->
-            </CForm>
-          </CCardBody>
-        </CCard>
-      </CCol>
-    </CRow>
-    <!-- <CRow>
+              <!-- <CRow>
       <CCol>
         <CCard>
           <CCardHeader>
@@ -454,18 +448,23 @@
         </CCard>
       </CCol>
     </CRow> -->
-    <CCardFooter>
-      <CButton
-        type="submit"
-        size="sm"
-        color="primary"
-        @click="clientBasicInformation"
-        ><CIcon name="cil-check-circle" /> Submit</CButton
-      >
-      <CButton type="reset" size="sm" color="danger"
-        ><CIcon name="cil-ban" /> Reset</CButton
-      >
-    </CCardFooter>
+            </CForm>
+          </CCardBody>
+          <CCardFooter>
+            <CButton
+              type="submit"
+              size="sm"
+              color="primary"
+              @click="clientBasicInformation"
+              ><CIcon name="cil-check-circle" /> Submit</CButton
+            >
+            <CButton type="reset" size="sm" color="danger"
+              ><CIcon name="cil-ban" /> Reset</CButton
+            >
+          </CCardFooter>
+        </CCard>
+      </CCol>
+    </CRow>
   </div>
 </template>
 
@@ -650,3 +649,6 @@ export default {
   },
 };
 </script>
+<style scoped>
+
+</style>

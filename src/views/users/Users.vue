@@ -1,11 +1,11 @@
 <template>
   <CRow>
-    <CCol col="" xl="">
+    <CCol class="users" xl="8">
       <CCard>
         <!-- <CCardHeader> クライアント一覧 </CCardHeader> -->
         <CCardBody>
           <CTabs>
-            <CTab title="myプロフィール登録" active>
+            <CTab title="Myプロフィール登録" active>
               <NutritionistRegister></NutritionistRegister>
             </CTab>
             <CTab title="クライアント一覧" active>
@@ -59,11 +59,10 @@ export default {
       userData: null,
       fields: [
         { key: "username", label: "名前", _classes: "font-weight-bold" },
-        { key: "email", label: "email" },
+        { key: "ruby", label: "フリガナ" },
         { key: "sex", label: "性別" },
-        { key: "birthday", label: "誕生日" },
-        { key: "address", label: "出身地" },
-        { key: "id", label: "id" },
+        { key: "age", label: "年齢" },
+        { key: "address", label: "居住地" },
       ],
       activePage: 1,
     };
@@ -82,7 +81,12 @@ export default {
               this.items.push({
                 username: doc.data().name,
                 email: doc.data().email,
+                age: doc.data().age,
+                ruby: doc.data().ruby,
                 sex: doc.data().pickedSex,
+                height: doc.data().height,
+                weight: doc.data().weight,
+                type: doc.data().type,
                 birthday: doc.data().birthday,
                 address: doc.data().address,
                 breakfast: doc.data().breakfast,
@@ -153,3 +157,15 @@ export default {
   },
 };
 </script>
+<style scoped>
+.users {
+  margin: 0 auto;
+}
+.input-group-text {
+  background-color: black;
+}
+/* .col-md {
+  border-left: 1px solid;
+  border-left-color: rgb(196, 201, 208);
+} */
+</style>
